@@ -693,27 +693,7 @@ $.i2= $.img2 = function(img, func){
 
     //s$(e).contains('data:')
     return i}
-$.i = $.img=function(source, func){
 
-    var img = $( new Image() )
-
-    //gets rid of auto-scaling quirk
-    img.load(function(img){
-        var img = $(img.target)
-        // img.W( img.W() )
-        // img.H( img.H() )
-    })
-
-    if(func){
-        img.load(function(event){
-            func($(event.target), event)})}
-
-    if(source){
-        img.src(src(source))
-    }
-
-    return img
-}
 $.hr2 =  function(c,h,w){
 
     var e = qq('hr')

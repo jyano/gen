@@ -1257,6 +1257,9 @@ SLOOM=function(){
     y.damp(1,10).track()
     $.in(4, "y.bS('me',.5)")
 
+    _.t(5, function(){
+        w.p(100,100)
+    })
 
 }
 STREET=function(){

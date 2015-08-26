@@ -1,3 +1,4 @@
+
 console.log('w'); both(); function both(){
     _ = require('./us')
     F = _.isFunction
@@ -61,6 +62,6 @@ _.e(['/FRONT/front', '/FRONT/can', '/FRONT/create', '/FRONT/anim',
 })
 
 
-require('http').createServer($a).listen(3000, function(){
-    $l('game server listening on port 3000')})
+require('http').createServer($a).listen(80, function(){
+    $l('game server listening on port 80')})
 

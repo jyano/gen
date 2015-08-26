@@ -824,40 +824,12 @@ function ctProto(){
         return $Cir(c, r, x, y).a2(this)
     }
 
-    ct.ct=function(x,y){var ct = this, g = G(arguments),
-        x = g[0],  y = g[1]
-        ct1=  $Ct()
-        ct.A( ct1 )
-        if (F(x)) {x(ct1, ct)}
-        else if (N(x)) {ct1.XY(x, y)}
-        if (g.p){
-            cjs.bindSlide(ct1)}
-        return ct1
-    }
+
     ct.Ct=function(){
         this.ct.apply(this, arguments)
         return this
     }
-    ct.bm=  ct.b=function self(i, sc, fn){var ct=this,g=G(arguments), o,
-        bm
-        o=g.F_? {fn:g.s, sc:1, i:i} :
-            g.N_ ? {sc:sc,fn:fn, i:i} :
-                N(g.s)? {i: g.f, sc: g.s, fn: g.t}:
-                {i: g.f, fn: g.s, sc: g.t}
-        o.i  = o.i || 'me'
-        if (O(o.i)) { return ct.A( $Bm(o.i) ) }
-        $.i(i, function(i){
-            bm =$Bm(i[0]).a2(ct)
-            if(!g.n){ bm.rC() }
-            if(g.p){ bm.drag() }
-            bm.sXY(o.sc)
-            //bm.XY( i.W()/2, i.H()/2 )
-            // works with stage i guess.. but fucks with 'container' - cant check bounds
-            //   if(g.n){bm.XY(-1000,-1000) }
-            if(o.fn){ o.fn(bm) }
-        })
-        return ct
-    }
+
     ct.Bm=function(){
         this.bm.apply(this, arguments)
         return this

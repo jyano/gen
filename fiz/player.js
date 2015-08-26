@@ -183,47 +183,12 @@ w.p1=  w.player1=function(x,y,sc,cn){
     return p
 
 }
-w.p=  w.player=  function(x,y,sc,cn){var w=this,g=G(arguments),
-    p
-
-    sc = N(sc, 1)
-    cn= cn || 'jump'
-
-    p = w.D(x,y).fR()
-
-    p.cn(cn)
-
-    p.SetBullet(true)
-
-    p.rec({
-        c:'r',
-        l:5,
-        C:'r',
-        w:22*sc,
-        h:40*sc
-    }).d(5)
-
-    p.rec({
-
-        s: 1,
-        w: 8*sc, h:8*sc,
-        x: 0,
-        y: 20*sc,
-
-    }).K('feet').C('X')
-
-   // p.bS(   {i:'me', sc: .25*sc, x:-10,y:-110}  )
-
-    p.Bm( 'me', 0, 0,  0.25*sc    )
-
-    if(g.p){p.tr()}
-
-    p.r(.4)
-    p.lD(.5)
 
 
-    return p
-}
+
+
+
+
 b.jumping = function (y, x) {var b=this, k = cjs.Keys
     if (k.u) {
         if (k.r) {b.lV(x, -(y - x))}
@@ -1020,3 +985,4 @@ old=function(){
 
 }
 }
+

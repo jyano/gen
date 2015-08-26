@@ -77,11 +77,7 @@ eD.init=function(){
     eD.initialize.apply(eD, arguments)
     return eD
 }
-$Bm= cjs.B= cjs.bm= function(){var g=G(arguments),   i=g[0], bm
-    bm=new cjs.Bitmap(i)
-    if(g.p){ bm.drag() }
-    return bm
-}
+
 $.fn.a2=function(el){el.A(this); return this}
 $.St=function(){z()
     s = $St().t()
@@ -157,7 +153,6 @@ SPEECH=function(){W()._(function(){
 ticker()
 
 
-$Ct=cjs.Ct=cjs.ct=function(a){return new cjs.Container(a)}
 
 NEWSTG=function(){z()
     //three ways to make a new stage
