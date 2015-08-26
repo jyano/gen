@@ -895,17 +895,6 @@ function ctProto(){
         var s=this; if(U(n)){return s.nextStage}; s.nextStage=n; return s
     }
     ct.u=function(){this.update();return this}
-    ct.qB=  ct.bQ=function(name, x, y, sX,sY, rt){var b,g=G(arguments)
-        b= Q.b(name)
-            .XY(N(x,0), N(y,0))
-            .sXY(N(sX,1), N(sY,sX||1))
-            .rt(N(rt,0))
-
-        if(!g.n){b.rC()  }
-        if( g.p ){ b.drag() }
-        this.A(b )
-        return b
-    }
 
 
     ct.chalk = function () {

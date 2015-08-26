@@ -53,24 +53,7 @@ TFSET= function(){W()._(function(){
             this}
 
 })}
-$St=function(){var st, g=G(arguments), cv
-    //get by canvas ID
-    cv = g.A? g.f[0]:
-        //if you pass it a canvas OR a $canvas object
-        O(g.f)? $(g.f)[0] :
-            //create a new canvas
-            $.c(g.f||'p',g.s||1200,g.t||600,g[3],g[4])[0]
-    st = new cjs.Stage( cv )
 
-    st.cv=   st.c=st.can= $(st.canvas)
-    st.cv0=  st.cv[0]
-    st.xc= st.cv0.getContext('2d')
-
-    if(g.p){st.t()}
-
-    return st.A()
-    //.t()
-}
 cjs.iDO= function(i){return O(i)&&F(i.getStage)}
 eD.init=function(){
     var eD=this

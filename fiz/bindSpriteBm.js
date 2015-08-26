@@ -1,5 +1,11 @@
 b2d.p()
 
+$DF=function(){
+
+
+
+}
+
 _src=function(a){
     a = $.extension(a); return s$(a).startsWith('/')? a : '/'+ a
 }
@@ -8,44 +14,7 @@ $.fn.src  = function(a){
     this.attr('src', _.src(a) )
     return this
 }
-q.f= q.l= function(fn){var q=this
-    q.on("fileload", fn)
-    return q}
-q.c= function (fn) {var q=this
-    if(F(fn)){ q.on("complete", fn) }
-    return q
-}
-q.b=  q.bm =function(i, ct, x, y){var bm = cjs.B( this.r(i) )
-    if(ct){bm.a2(ct,x,y)}
-    return bm
-}
-q.i=  q.r= function(i){
-    i  = this.getResult(i)
-    i.w= i.width
-    i.h = i.height
-    return i
-}
-q.$=function(i){
-    return $(this.i(i))
-}
-q.m = function(){var q=this, g=G(arguments), _mf, mf
-    // q.m:
-// protosig:
-//
-// 'me',..
-//
-// {src:'me', id:'him'},..
-//
-// [ {src:*, id:*}, 'me',.. ]
 
-    if(g.u){return q}
-    _mf = g.A ? g.f : g
-    mf = _.m(_mf,  function(item){
-        return S(item)? {src: _.src(item),id:item} : item
-    })
-    q.loadManifest( mf )
-    return q
-}
 _.src =  function f(e){
 
 
@@ -63,76 +32,8 @@ _.src =  function f(e){
         : 0
 }
 w._ = function(fn){Q(function(){fn(w)})}
-function qTests() {
 
-    WQ = function () {
-        var g = G(arguments),
-            o = F(g.t) ? {ob: g.f, fn0: g.s, fn: g.t} :
-                F(g.s) ? {ob: g.f, fn: g.s} : {fn: g.f}
-        o.ob = o.ob || {}
-        w = W(o.ob)
-        if (o.fn0) {
-            o.fn0(w)
-        }
-        Q(o.ob.I || ['me', 'guy', 'chicks', 'sun', 'flame', 'earth'],
-            function () {
-                o.fn(w)
-            })
-    }
-    MF = function () {
-        W().C('r')
-        Q(
-            ['me', 'guy', 'chicks', 'sun'],
-            function () {
-                w.C('g')
-                w.i.A(
-                    Q.b('me'),
-                    Q.b('guy')
-                )
-            }
-        )
 
-    }
-    TXWQ = function () {
-        WQ({C: 'r'}, function () {
-            w.C('g')
-            w.i.A(Q.b('me'), Q.b('guy'))
-        })
-    }
-    QTX = function () {
-        WQ(function () {
-            i = w.i.qB('me', 0, 0, 3)
-        })
-    }
-    WINDING = function () {
-        W()._(function () {
-            //$.header().A($.h1('grahics winding')).A()
-            h = w.i.h().graphics.f("pink").dr(20, 20, 450, 360)
-                .arc(160, 160, 110, 0, Math.PI * 2, true).closePath()
-                .arc(330, 240, 110, 0, Math.PI * 2, true).closePath()
-            bm = w.i.qB('chicks').X(470).drag()
-            bm.mask = h.same().X(470)
-        })
-    }
-    QUEUEMUG = function () {
-        W()._(function (w) {
-            ////// ok, this is what i thought.. its how i can preload someone's mug as 'mug' !
-            // mug= s.bData( qu.gR("mug") ).drag()
-            me = w.i.qB("me").drag()
-        })
-    }
-}
-Q = function () {var g = G(arguments), o, q
-    o = g.F ? {c: g.f} :
-    {m: g.f, c: g.s}
-
-    o.m = o.m || ['me', 'guy', 'sun', 'chicks', 'earth']
-
-    q = new cjs.LoadQueue
-
-    Q = q.c(o.c).m(o.m)
-
-}
 _xyr=function(o){
     o.x=N(o.x,0)
     o.y=N(o.y,0)
@@ -165,32 +66,12 @@ $.i = function(){var g=G(arguments),
     return i
 } //img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
 $Ct= function(a){return new cjs.Container(a)}
-$Bm=   function(bm){
+$Bm=   function(bm){var g=G(arguments)
     bm= _bm(bm)
     if(g.p){ bm.drag() }
     return bm
 }
-ct.bm=  ct.b= function self(){var ct=this,g=G(arguments), bm,
 
-    o=  g.F_? {fn:g.s, sc: g.s} :
-        g.N_ ? {sc: g.f, fn: g.s} :
-        _.x({i:g.f}, N(g.s)? {  sc: g.s, fn: g.t}:
-        {  fn: g.s, sc: g.t})
-    o.sc= o.sc ||1
-    _im(o)
-
-    //
-    if (O(o.i)){alert('ct.bm O(o.i)');return ct.A( $Bm(o.i) )}
-    //
-
-    $.i(o.i, function(i){
-        bm = $Bm(i[0]).a2(ct).sXY(o.sc)
-        if(!g.n){ bm.rC() }
-        if(g.p){ bm.drag() }
-        if(o.fn){ o.fn(bm) }
-    })
-    return ct
-}
 ct.ct= function(x,y){var ct = this,
     g = G(arguments), ct1=$Ct()
     o= g.F_? {fn:g.f} : {x: g.f, y: g.s}
@@ -225,14 +106,9 @@ w.p= function(x,y,sc,cn){var w=this,g=G(arguments),
     p.lD(.5)
     return p
 }
-b.Bm=function(iS, x,y,sX,sY,rt){var b=this,
-    w= b.W(),g=G(arguments);
-    b.gx = b.gx || w.g.ct()
-    if(S(iS)){this.gx.bm(iS, fn)}
-    if(O(iS)){fn(iS);return iS}
-    return b
-    function fn(bm) {bm.rC().XY(N(x,0),N(y,0)).sXY(N(sX,1), N(sY,sX||1)).rt(N(rt,0))}
-}
+
+
+
 b.Sp=function(){var g=G(arguments),
     sp, o
     o= _xyr({sp: g.f, x: g.s, y: g.t, sX:g[3], sY:g[4], r:g[5]})
@@ -334,4 +210,475 @@ f.bI=function(){
     this.gx.A(o.i.sXY(o.sc).XY(o.x, o.y).rt(o.r).al(o.al))
 
     return this
+}
+
+
+_MF = ['me', 'guy', 'chicks', 'sun', 'flame', 'earth']
+
+Q=function(){var g=G(arguments),  o=g.F?{c:g.f}: {m:g.f,c:g.s}
+    o.m = o.m || _MF
+    Q = (new cjs.LoadQueue).c(o.c).m(o.m)
+}
+
+
+WQ = function(){
+    var g = G(arguments), o = _.x({ob:g.f||{}},
+        F(g.t)?{fn0: g.s, fn: g.t}: {fn: g.s})
+    o.fn = o.fn || function(){}
+
+    w = W(o.ob)
+    if (o.fn0) {o.fn0(w)}
+    Q(o.ob.I||_MF ,
+        function(){o.fn(w)
+        })
+
+}
+
+
+q.f= q.l= function(fn){var q=this
+    q.on("fileload", fn)
+    return q}
+
+q.c= function (fn) {var q=this
+    if(F(fn)){ q.on("complete", fn) }
+    return q
+}
+
+
+q.b=  q.bm =function(i, ct, x, y){
+    var bm = $Bm( this.r(i) );
+    if(ct){bm.a2(ct,x,y)}; return bm
+}
+
+
+b.Bm=function(iS, x,y,sX,sY,rt){var b=this, w= b.W(),g=G(arguments);b.gx = b.gx || w.g.ct()
+    if(S(iS)){this.gx.bm(iS, fn)}
+    if(O(iS)){fn(iS);return iS}
+    return b
+    function fn(bm) {bm.rC().XY(N(x,0),N(y,0)).sXY(N(sX,1), N(sY,sX||1)).rt(N(rt,0))}
+}
+
+
+
+ct.bm=  ct.b= function self(){var ct=this,g=G(arguments), bm,
+
+    o=  g.F_? {fn:g.s, sc: g.s} :
+        g.N_ ? {sc: g.f, fn: g.s} :
+            _.x({i:g.f}, N(g.s)? {  sc: g.s, fn: g.t}:
+            {  fn: g.s, sc: g.t})
+    o.sc= o.sc ||1
+
+    _im(o)
+
+
+    //
+    if (O(o.i)){alert('ct.bm O(o.i)');return ct.A( $Bm(o.i) )}
+    //
+
+
+    $.i(o.i, function(i){
+
+        bm = $Bm(i[0]).a2(ct).sXY(o.sc)
+
+        if(!g.n){ bm.rC() }
+
+        if(g.p){ bm.drag() }
+
+        if(o.fn){ o.fn(bm) }
+
+    })
+
+    return ct
+
+}
+
+
+
+
+
+
+q.i=  q.r= function(i){i  = this.getResult(i); i.w= i.width;i.h = i.height; return i}
+
+q.$=function(i){
+    return $(this.i(i))
+}
+
+q.m = function(){var q=this, g=G(arguments), _mf, mf
+    // q.m:
+// protosig:
+//
+// 'me',..
+//
+// {src:'me', id:'him'},..
+//
+// [ {src:*, id:*}, 'me',.. ]
+
+    if(g.u){return q}
+    _mf = g.A ? g.f : g
+    mf = _.m(_mf,  function(item){
+        return S(item)? {src: _.src(item),id:item} : item
+    })
+    q.loadManifest( mf )
+    return q
+}
+
+
+ct.qB=  ct.bQ=function(name, x, y, sX,sY, rt){var b,g=G(arguments)
+    b= Q.b(name)
+        .XY(N(x,0), N(y,0))
+        .sXY(N(sX,1), N(sY,sX||1))
+        .rt(N(rt,0))
+    if(!g.n){b.rC()  }; if( g.p ){ b.drag() };
+    this.A(b );
+    return b
+}
+
+
+
+
+
+TXWQ = function () {WQ({}, function () {w.C('p').i.A(Q.b('me'), Q.b('guy'))})} // <- WQ({C:'r'})
+
+
+WINDING=function(){
+    W()._(function(){
+    //$.header().A($.h1('grahics winding')).A()
+        h = w.i.h().graphics.f("pink").dr(20, 20, 450, 360)
+            .arc(160, 160, 110, 0, Math.PI * 2, true).closePath()
+            .arc(330, 240, 110, 0, Math.PI * 2, true).closePath()
+        bm = w.i.qB('chicks').X(470).drag()
+        bm.mask = h.same().X(470)
+    })
+}
+
+
+
+MF = function () {
+    W().C('r')
+    Q(
+        ['me', 'guy', 'chicks', 'sun'],
+        function () {
+            w.C('g')
+            w.i.A(
+                Q.b('me'),
+                Q.b('guy')
+            )
+        }
+    )
+
+}
+
+QTX = function () {     WQ(function () {i = w.i.qB('me', 0, 0, 3)})}
+
+
+
+
+
+QUEUEMUG=function(){W()._(function(w){
+    me = w.i.qB("me").drag()})} // its how i can preload someone's mug as 'mug' !//  mug= s.bData( qu.gR("mug") ).drag()
+
+
+
+
+
+
+
+W=b2d.W=function(){var g=G(arguments),o
+
+    polymorph()
+
+    crWorld()
+
+    if(o.xx!==0){z()}
+
+    props();
+    handle()
+    grpx();
+    debg()
+
+    w.walls(_w)
+
+    keys();
+    mouse();
+    track()
+
+    w.o=o //w.stats()
+
+    return w
+
+
+    function crWorld() {
+        _w = o.w
+        o.g = N(o.g) ? V(0, o.g) :
+            O(o.g) ? V(o.g) :
+                V(0, 10)
+        o.sl = U(o.sl) ? true : o.sl
+        w = new b2d.World(o.g, o.sl)
+    }
+    function polymorph(){
+
+        o = g.A_? _.x(g.s||{}, {W:g.f[0], H:g.f[1], wW:g.f[2], wH:g.f[3]}) :
+
+            N(g.f) && U(g.s)? { g: g.f }:
+
+                g.$N? {W:g.f,H:g.s, wW:g.t, wH:g[3]}:
+
+                    g.S? {w:g.f }:
+
+                    g.f || {}
+
+
+        //W([], [{}]) //W(1000)//W(1200,600,[N],[N])//W('U')
+
+    }
+
+
+    function props(){
+        w.W = N(o.W,1200)
+        w.H = N(o.H,600);
+
+        w.w = N(o.wW, w.W);
+        w.h = N(o.wH, w.H);
+
+        w.Ww = w.W/w.w; w.wW = w.w/w.W; w.Hh = w.H/ w.h; w.hH = w.h/ w.H;
+        w.mZ = w.hH > w.wW? w.hH : w.wW; w.mS = w.Ww > w.Hh ? w.Ww : w.Hh;
+        w.hW = w.W/2; w.hH = w.H/2; w.z=1; w.SCALE=1
+
+
+    }
+    function handle(){
+        //handling
+        w.bH=   []; w.pH=   []; w.PH=   []; w.eH=   []  //l.P=  l.post=  function (fn) {this.PostSolve = fn; return this}
+//l.b=  l.beg=  function (fn) {this.BeginContact = fn; return this}
+//l.e=  l.end= function (fn) {this.EndContact = fn; return this}
+//l.p=  l.pre=  function (fn) {this.PreSolve=fn;return this}
+//w.listen = w.setContactListener = w.sCL = w.SetContactListener
+        b2d.L= b2d.listener = b2d.contactListener = function () {return new b2d.Dynamics.b2ContactListener}
+        w.SetContactListener(_.x(w.ln=new b2d.Dynamics.b2ContactListener,{
+
+            BeginContact : function(cx){_.e(w.bH, function(fn){
+                $.do(function(){fn(cx)})  })},
+
+            EndContact : function(cx){_.e(w.eH, function(fn){
+                $.do(function(){ fn( cx ) })   })},
+
+            PreSolve : function(cx, i){_.e(w.pH, function(fn){
+                fn(cx,i)})},
+
+            PostSolve : function(cx, pam2){_.e(w.PH, function(fn){
+                $.do(function(){fn(cx,pam2)})})}
+
+        }))
+
+    }
+
+    function grpx(){
+
+        w.I = $St('z', w.W, w.H ,0, 0)
+        w.s= $St('X', w.W, w.H, 0, 0)//.aC(0)
+        w.canvas = w.s.canvas
+        w.can= $(w.canvas)
+        w.ctx = w.can.ctx('2d')
+        w.bg= w.s.ct();
+        w.g=  w.s.ct();
+        w.fg= w.s.ct()
+        w.i =  $St('X', w.W, w.H, 0, 0)
+
+        if(o.i){ w.s.bm(o.i) }
+        w.lG($r())
+        if(o.aC==1){
+            //w.i.aC(0)
+            // if(g.O){; return w}
+            // return g.u? w.i.aC(!w.i.aC()): g.s? w.i.aC(w):
+        }
+    }
+
+
+    //h = w.i.h()//gx= h.graphics//w.hud.SHAPE  = w.hud.h($r())//w.hud.SHAPE.rec( 0, 0, 5000, 5000).al(.3)
+    function debg() {
+        /*
+
+         debugArea = $St('z', w.W, w.H, 0, w.H)
+
+         debugDraw = new b2d.Dynamics.b2DebugDraw
+         debugDraw.SetSprite(debugArea.c.ctx())
+         debugDraw.m_drawScale=30 * (w.W/ w.w) * .8
+         debugDraw.m_alpha = 1
+         debugDraw.m_fillAlpha=1
+         debugDraw.m_lineThickness=10
+         debugDraw.m_drawFlags =  b2DebugDraw.e_jointBit|
+         b2DebugDraw.e_shapeBit| b2DebugDraw.e_obbBit|
+         b2DebugDraw.e_controllerBit|
+         b2DebugDraw.e_aabbBit|
+         b2DebugDraw.e_pairBit|
+         b2DebugDraw.e_centerOfMassBit
+         debugDraw.alpha(.6).line(3000)
+         */
+        //  w.SetDebugDraw(debugDraw)
+
+
+    }
+    function keys(){
+        $.kD('l',function(){
+            if ($.test) {$l('left pressed')}
+            K.l = cjs.Keys.l = cjs.Keys.left = true
+            cjs.Keys.dir = 'left'
+            K.l = 1;
+            K.L = 0
+        })
+        $.kU('l',function(){if ($.test) { $l('left lifted') }
+            K.l = cjs.Keys.l = cjs.Keys.left = false
+            K.l = 0;
+            K.L = 1
+        })
+
+        $.kD('r',function(){if ($.test) {$l('right pressed')}
+            K.r = cjs.Keys.r = cjs.Keys.right = true
+            cjs.Keys.dir = 'right'
+            K.r = 1;
+            K.R = 0
+        })
+        $.kU('r',function(){if ($.test) {
+            $l('right lifted')
+        }
+            cjs.Keys.r = cjs.Keys.right = false
+            K.r = 0;
+            K.R = 1
+        })
+        $.kD('u',function(){if ($.test) {
+            $l('up pressed')
+        }
+            cjs.Keys.u = cjs.Keys.up = true
+            K.u = 1;
+            K.U = 0
+        })
+        $.kU('u',function(){if ($.test) {
+            $l('up lifted')
+        }
+            cjs.Keys.u = cjs.Keys.up = false
+            K.u = 0;
+            K.U = 1
+        })
+
+        $.kD('d',function(){if ($.test) {
+            $l('down pressed')
+        }
+            cjs.Keys.d = cjs.Keys.down = true
+            K.d = 1;
+            K.D = 0
+        })
+
+        $.kU('d',function(){if ($.test) {
+            $l('down lifted')
+        }
+            cjs.Keys.d = cjs.Keys.down = false
+            K.d = 0;
+            K.D = 1
+        })
+
+        K._loaded = 1
+
+    }
+    function mouse(){
+
+
+
+        w.mm(logMXY)
+
+
+        w.md(function(o){
+
+            logMXY(o)
+
+            w.q(o.x, o.y, function(f){
+
+                //if(!f.iD()){return true}
+
+
+
+                if(f.of(w.o.m)){
+
+
+                    w.mj = w.mJ( f.B(), o.x, o.y)
+                }
+
+
+            })})
+
+        //this is great//it demonstrates md, q, m, and ofClass //but it has a real purpose too!//anytime mousedown.. because that implies there was a mouse up //so there should be no current mouse joint.. smart!
+
+        w.mu(function(){if(w.mj){w.j(w.mj);w.mj=0}})
+
+
+        function logMXY(e){
+
+            var p = w.sToW(e.X,e.Y);
+
+            w.mx=p.x
+
+            w.my=p.y
+
+        }
+    }
+    function track(){
+
+        T.t(function(){
+
+
+            if(w.mj){w.mj.tg(w.mx, w.my)}
+            w.step(1/60)
+            if(F(o.cb)){o.cb()}
+            if(!T.iP()){ w.I.u(); w.s.u(); w.i.u()}
+
+            //  w.DrawDebugData()
+
+            w.e(function(b){
+                b.wX = b.X(); b.wY= b.Y()
+                b.sX = w.wTS(b.wX, b.wY).x
+                b.sY= w.wTS(b.wX, b.wY).y
+                if(O(b.gx)){
+                    b.gx.XY(b.X(), b.Y()).rt(b.rt())
+                }
+            })
+
+        })
+
+        if(o.t!==0){
+
+            w.t =  w._t = w._t || w.S(w.hW, w.hH, 'w', [[20,2,'-'] ]).r(.8) //trackee
+
+            w.i.A( w.tSpr=  $Ct().XY(w.t.X(), w.t.Y()) ) //  w.tSpr.bm('guy', function(g){  g.sXY(.2)}) // w.tSpr.A(g)
+
+            T.t(function(){
+
+                if(F(w.t.cb)){w.t.cb()} else if(F(w.tCb)){w.tCb()}
+
+                w.s.x = -w.sXCap( (w.t.X()-w.hW+ w.hW)*w.z - w.hW  )
+
+                w.s.y = -w.sYCap( (w.t.Y()-w.hH+ w.hH)*w.z - w.hH  )
+
+                if(w.t == w._t){
+                    w.t.XY(w.tSpr.X(), w.tSpr.Y())
+                    w.s.rot(w.tSpr.rot())
+                }
+            })
+        }
+
+    }
+}
+
+$St=function(){var st, g=G(arguments), cv
+    //get by canvas ID
+    cv = g.A? g.f[0]:
+        //if you pass it a canvas OR a $canvas object
+        O(g.f)? $(g.f)[0] :
+            //create a new canvas
+            $.c(g.f||'p',g.s||1200,g.t||600,g[3],g[4])[0]
+    st = new cjs.Stage( cv )
+    st.cv=   st.c=st.can= $(st.canvas)
+    st.cv0=  st.cv[0]
+    st.xc= st.cv0.getContext('2d')
+    if(g.p){st.t()}
+    return st.A()
+    //.t()
 }
