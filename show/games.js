@@ -3314,16 +3314,14 @@ webman=function(){
 };webman()
 
 
-TX = function (){
+TX= function (){
+
     W( {W:2000, H:1000, wW:4000, wH:2000, g:1000})._(onReady)
 
 
     //.stats();
-
     w.Z(.1).G(10);
-
     //w.bg.bm('earth', onReady)
-
     function onReady(w){ //, m: 'm'
         w.$$(function(){ w.showOff() })
         //platforms
@@ -3512,11 +3510,8 @@ TX = function (){
 
         return t
     }
-
-
-
-
 }
+
 
 
 

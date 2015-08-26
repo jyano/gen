@@ -139,15 +139,9 @@ function iProto(){
         i.scaleY = n
         return i
     }
-    i.sXY = function(x,y){var i=this,g=G(arguments),v
-        if(U(g[0])){return {x:i.sX(),y:i.sY()}}
 
-        v=V(g[0],g[1])
-        x=_.tN(v.x)
-        y=_.tN(v.y,v.x)
-        return i.sX(x).sY(y)
 
-    }
+
     i.kX = function (skewX) {
         if (U(skewX)) {
             return this.skewX

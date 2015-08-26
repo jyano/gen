@@ -205,7 +205,16 @@ function scrolling(){
         return w
 
     }
-    w.sXY=function(x,y){return this.sX(x).sY(y)}
+
+    w.sXY=function(x,y){
+        $l('sXY')
+        if(U(x)){return {}}
+        this.sX(x)
+        this.sY(y)
+   return this
+    }
+
+
     w.sXCap=function(s){return cjs.cap( s, 0, this.w * this.z - this.W) }
     w.sX=function(x){var w=this
 

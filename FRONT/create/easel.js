@@ -121,16 +121,7 @@ K=  function(k,fn) {var g = G(arguments), o,key
     key=Key(o.k)
     return $('body').on( o.on , function(e){    if( e.which==key ){  fn(e) }    })
     function Key(k){var ob={u:38,d:40,l:37,r:39,s:32,e:13}; return ob[k]? ob[k]: k}}
-Graphics.fromSource = crs=function(a){
-    //it's the opposite of 'src' !
-//it strips '/me.png' -> 'me'
-//why would i need this?
-    return a.split('/').pop().split('.png')[0] }
 
-Graphics.isDataURL=function(d){
-    if(U(d)){return false}
-    return s$(d).contains('data:')
-}
 bad=function(){
 
     //xP=function(a){return Utils.props('X', X(a))}

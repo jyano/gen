@@ -408,11 +408,7 @@ function wProto(){
         s.flash.apply(s, arguments)
         return w
     }
-    w._ = function(fn){
-        Q(function(){
-            fn(w)
-        })
-    }
+
     w.pop = function (t) {
         var w = this
         t = this.i.T(t || 'no text', 80, 'o', w.hW, 200)

@@ -275,15 +275,7 @@ $.fn.delButton=function(){
     return this}
 $.fn.for=function(forWhat){return this.attr('for', forWhat)}
 $.fn.placeholder=function(forWhat){return this.attr('placeholder', forWhat)}
-$.fn.src  = function(a){
 
-
-    if( U(a) ){return this.attr('src')}
-
-    this.attr('src',  src(a) )
-
-    return this
-}
 $.fn.h1 = function(text){
 
     this.A($.h1(text))
