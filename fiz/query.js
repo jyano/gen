@@ -502,7 +502,7 @@ ray=function(){
         w.S(200,200, 'f', 100);
         w.S(500,500, 'l', 160, 60)
         rs =  w.ray(0, 0, 800, 800 )
-        $.in(  function(){
+        _.in(  function(){
 
             w.ray(0, 0, 500, 500, function(f){   f.C('g')  })
             w.ray(0,0,500,500,    function(f){f.B().bS('me')}, '-')
@@ -631,138 +631,6 @@ b.fSp=function(){
 }
 
 
-CM=function(){W({g:0, w:0}).Y().C('z')
-
-    x = w.S(100,100,'x',500)
-
-    b =   w.S(600,300,'w', [ [80], [100,300,140,0,46] ])
-
-    //w.d(r.wC())
-
-    f = b.f()
-    f1 = f.N()
-
-    h= f.H()
-
-    h1 =f1.H()
-
-
-   s =  x.fSp()
-}
-QUERY=function(){W().Y()
-
-
-    w.S(200,300,'b',100).$(function(){this.C('***')})
-    w.S(200,500, 'g', 100).K('g')
-        .cir({x:100,  r:80, c:'r'})
-        .$(function(){this.C('w')})
-
-    w.e('g', function(b){b.$$(function(){
-        this.B().C('z')
-        this.C('w')})
-    })
-
-    w.e$(function(o){this.C('y')
-        $l('mass: '+this.B().mass().toFixed(3))})
-
-    w.$(function(o){w.ball({x:o.x, y:o.y, r:8})})
-    w.$$(function(o){w.S(o.x, o.y, 'x',[[20,10  ]])})
-    w.S(600,400,'b',100,300);w.dot(600,300)
-    $.in(function(){
-        w.q(600,300,function(f){
-        f.C('r')})})
-
-    w.D(1100,500,'o',80).d(.1).$(function(){
-        this.B().I(100,-2000)
-    })
-
-
-    w.S(800,400,[['b', 100],['o',200,100]]).f().$(
-        function(){ this.kill()  }
-    )
-
-}
-CHEM = function(){W({ w: 0//, g:50
-})
-
-
-    w.rR(  0, 3 )
-    w.rR(  100,  3 )
-    w.rR(  100,  3 )
-    w.rR(  200,  3 )
-    w.rR(  300,  3 )
-    w.rR(  400,  3 )
-
-
-    w.Q(function(f){ f.B().kill() }, 550,250,650,350 )
-
-    w.Q(function(f){ f.B().kill() }, 350,  50,    450, 150 )
-
-    w.Q(function(f){ f.B().kill() }, 850,  50, 950, 150 )
-
-
-    y = w.y(600,300).K('y')
-
-    $.ev(1, function(){
-
-        w.cir(R(20,400), 80,12,'r').K('r')
-        w.rec(R(20,900), 100, 24,24,'b').K('b')
-    })
-
-
-
-
-    w.cl('bul', function(f){var b= f.B()
-        this.B().kill()
-        if(b!=y){b.kill()}})
-
-
-    w.cl('r','b', function(){
-        y.stat()
-        w.e(function(b){if(b!=y){b.kill()}})
-        alert('you win!')
-    })
-
-
-
-    y.cl('r', lose)
-    y.cl('b', lose)
-    function lose() {
-        //w.pen('you lose')
-        y.stat()
-        w.e(function (b) {if (b != y){b.kill()}})
-        $.in(self)
-    }
-
-
-}
-STACK=function(){W({m:'ball',w:0})
-    w.S(500,600,'y',1000, 20)
-    b =  w.D(500,200, 'o', 40).K('ball')
-    w.boxesStat([350, 260, 880, 30])
-    w.D(310,120,'t',60,60)
-    w.D(320,120,'t',60,60)
-    w.D(340,120,'t',60,60)
-    w.D(350,120,'t',60,60)
-    w.D(370,120,'t',60,60)
-    w.D(380,120,'t',60,60)
-    w.D(550,120,'t',60,60)
-    w.D(570,120,'t',60,60)
-    w.D(580,120,'t',60,60)
-    w.S( 1000,400,'x',200,200)
-    w.S( 1200,200,'x',200,200)
-}
-MJ = function (){W([1200, 600, 2400, 600], {g: 10, m: 'm'  }).Y('+')
-
-    w.D(100, 200, 'y', 150, 100).K('imp')
-    w.D(500, 400, 'y', 50, 100).K('imp')
-    w.D(300, 400, 'r', 50, 50);
-    w.D(800, 400, 'r', 50, 50);
-    w.D(1200, 400, 'r', 50, 50);
-    w.D(1600, 400, 'b', 100, 100).K('m')
-
-    w.e$('imp', function(){this.B().I(0,-50)})  // w.e('imp', function(b){b.$(function(){ this.B().I(0,-50) }) })
-}
 later=function(){
     $.touchstart=function(func){
 
@@ -1059,85 +927,142 @@ fD.D = fD.data = function (data) {
     return this
 }
 
-old=function(){
+queryApps()
+function queryApps(){
 
-    jointDef=function() {
-        jd = b2d.Joints.b2MouseJointDef.prototype
-        jd.sT = function (a, b) {
-            var jd = this//=j.tS=    j.tg=j.tgS=j.ts=
-            j.target.Set(a, b)
-            return jd
-        }
-        jd.cC = jd.clC = jd.clCn = jd.cc = function (a) {
-            var jd = this
-            j.collideConnected = a ? true : false
-            return jd
-        }
-        jd.mF = jd.mf = function (a) {
-            var jd = this
-            j.maxForce = a;
-            return jd
-        }
-        jd.A = function (a) {
-            var jd = this
-            j.bodyA = a
-            return jd
-        }
-        jd.B = function (b) {
-            var jd = this
-            jd.bodyB = b
-            return jd
-        }
-    }; jointDef()
-    w.mJ=function(o){var w=this
-        if(o.m==0){return w}
+    CM=function(){W({g:0, w:0}).Y().C('z')
 
-        o=o||{}
+        x = w.S(100,100,'x',500)
 
-        $.M()
-        cjs.tick(function(){if(w.mj){w.mj.tg(_) }})
-        $.oMU(function(){ w.MJ() })
-        $.oMD(function(x,y){w.XY(x,y,
-            function(f){if(f.ofClass(o.m)){w.mj = w.mJ(f.body(), _ )}
-            })})
+        b =   w.S(600,300,'w', [ [80], [100,300,140,0,46] ])
 
-        return w}
+        //w.d(r.wC())
+
+        f = b.f()
+        f1 = f.N()
+
+        h= f.H()
+
+        h1 =f1.H()
 
 
-    w.eB=w.each=w.eachBody=function(l,uD){var w=this,
-        bs = w.GetBodyList(),
-        k,
-        b
-
-        //can pass a cb to be run on EACH body
-        //can also pass a uD to restrict cb to
-        //run only on bodies with that uD
-
-        if(S(l)){k=l; l=uD} else {k=uD}
-
-        while(bs){
-            b  = bs
-            bs = bs.next()
-            if(b.has(k)){l(b)}
-        }
-
-        return w}
-    w.$$x=function(fn){var w=this
-        w.UI().dblclick(function(e){
-
-            fn(e.pageX, e.pageY)
-
-        })
-        return w
+        s =  x.fSp()
     }
 
+    QUERY=function(){W().Y()
 
 
-    w.mouseJAt = function (p, k) {
-        var w = this, mj
-        if (N(p)) {  p = V(p, k)  }
-        w.XY(p.x, p.y, function (f) {  mj = f.B().mouseJoint(p) })//, k
-        return mj}
+        w.S(200,300,'b',100).$(function(){this.C('***')})
+        w.S(200,500, 'g', 100).K('g')
+            .cir({x:100,  r:80, c:'r'})
+            .$(function(){this.C('w')})
+
+        w.e('g', function(b){b.$$(function(){
+            this.B().C('z')
+            this.C('w')})
+        })
+
+        w.e$(function(o){this.C('y')
+            $l('mass: '+this.B().mass().toFixed(3))})
+
+        w.$(function(o){w.ball({x:o.x, y:o.y, r:8})})
+        w.$$(function(o){w.S(o.x, o.y, 'x',[[20,10  ]])})
+        w.S(600,400,'b',100,300);w.dot(600,300)
+        _.in(function(){
+            w.q(600,300,function(f){
+                f.C('r')})})
+
+        w.D(1100,500,'o',80).d(.1).$(function(){
+            this.B().I(100,-2000)
+        })
+
+
+        w.S(800,400,[['b', 100],['o',200,100]]).f().$(
+            function(){ this.kill()  }
+        )
+
+    }
+    CHEM = function(){W({ w: 0//, g:50
+    })
+
+
+        w.rR(  0, 3 )
+        w.rR(  100,  3 )
+        w.rR(  100,  3 )
+        w.rR(  200,  3 )
+        w.rR(  300,  3 )
+        w.rR(  400,  3 )
+
+
+        w.Q(function(f){ f.B().kill() }, 550,250,650,350 )
+
+        w.Q(function(f){ f.B().kill() }, 350,  50,    450, 150 )
+
+        w.Q(function(f){ f.B().kill() }, 850,  50, 950, 150 )
+
+
+        y = w.y(600,300).K('y')
+
+        _.ev(1, function(){
+
+            w.cir(R(20,400), 80,12,'r').K('r')
+            w.rec(R(20,900), 100, 24,24,'b').K('b')
+        })
+
+
+
+
+        w.cl('bul', function(f){var b= f.B()
+            this.B().kill()
+            if(b!=y){b.kill()}})
+
+
+        w.cl('r','b', function(){
+            y.stat()
+            w.e(function(b){if(b!=y){b.kill()}})
+            alert('you win!')
+        })
+
+
+
+        y.cl('r', lose)
+        y.cl('b', lose)
+        function lose() {
+            //w.pen('you lose')
+            y.stat()
+            w.e(function (b) {if (b != y){b.kill()}})
+            _.in(self)
+        }
+
+
+    }
+    STACK=function(){W({m:'ball',w:0})
+        w.S(500,600,'y',1000, 20)
+        b =  w.D(500,200, 'o', 40).K('ball')
+        w.boxesStat([350, 260, 880, 30])
+        w.D(310,120,'t',60,60)
+        w.D(320,120,'t',60,60)
+        w.D(340,120,'t',60,60)
+        w.D(350,120,'t',60,60)
+        w.D(370,120,'t',60,60)
+        w.D(380,120,'t',60,60)
+        w.D(550,120,'t',60,60)
+        w.D(570,120,'t',60,60)
+        w.D(580,120,'t',60,60)
+        w.S( 1000,400,'x',200,200)
+        w.S( 1200,200,'x',200,200)
+    }
+    MJ = function (){W([1200, 600, 2400, 600], {g: 10, m: 'm'  }).Y('+')
+
+        w.D(100, 200, 'y', 150, 100).K('imp')
+        w.D(500, 400, 'y', 50, 100).K('imp')
+        w.D(300, 400, 'r', 50, 50);
+        w.D(800, 400, 'r', 50, 50);
+        w.D(1200, 400, 'r', 50, 50);
+        w.D(1600, 400, 'b', 100, 100).K('m')
+
+        w.e$('imp', function(){this.B().I(0,-50)})  // w.e('imp', function(b){b.$(function(){ this.B().I(0,-50) }) })
+    }
 
 
 }

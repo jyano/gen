@@ -1,3 +1,41 @@
+MFIL=function(){W()._(function(){
+    b = $H()
+    b.graphics
+        .beginLinearGradientFill(["#000000",
+            "rgba(0, 0, 0, 0)"], [0, 1], 0, 0, 100, 100)
+    b.graphics.drawRect(0, 0, 100, 100);
+    b.cache(0, 0, 100, 100);
+    bm = w.i.qB("me")
+    bm.filters = [
+        new cjs.AlphaMaskFilter(b.cacheCanvas)
+    ]
+    bm.cache(0, 0, 100, 100);
+})}
+
+
+BI=function(){W()._(function(){
+    b = w.S(600,300, 'r', 200,300).rt(10)
+    f= b.f()
+    f.bI('me')
+})}
+
+
+
+
+SPRBALLS=function(){
+    W(400,400).C('w')._(function(){
+        //cjs.rulers()
+        w.p(0,0,10).stat()
+        _.t(8, function(){w.D(R(100,50),R(100,50),'b',30)})
+        w.$$(function(){
+            _.t(8, function(){
+                var b= w.D(R(100,50),R(100,50),'b',30)
+                b.$h('x','X',1).c('x','X', 1).bf(w.s.cv0).cir(30)
+            })
+        })
+        w.i.T(200,100, '$$ me')
+    })}
+
 PL=function (cn) {W();  df= cn||
 'slide'
     //'jumper'
