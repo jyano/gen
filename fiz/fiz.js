@@ -385,7 +385,135 @@ rest=function(){
 
 
 };rest()
+dD_Defs=function(){
+    bD.XY= bD.p = bD.ps = bD.xy= function (x, y) {var bD=this, g = G(arguments),p
+        if(g.u){return bD.position.m()}
+        p=V(g.f, g.s, '-')
+        bD.position.Set(p.x,p.y)
+        return bD}
+    bD.X = function (x) {var bD=this, p = bD.XY()
+        if(U(x)){return p.x}
+        return bD.XY(x,p.y)}
+    bD.Y = function (y) {var bD=this, p = bD.XY()
+        if (U(y)) {return p.y}
+        return bD.XY(p.x, y)}
+    b2d.bD= function(x,y){var v=V(x,y),
+        bD = new b2BodyDef()
+        return bD.XY(N(v.x,100),N(v.y,100))}
+};dD_Defs()
+pH.vs= pH.vertsx= function(){var pH=this
+    return _.m(pH.m_vertices, function(v){return [v.x*30, v.y*30]})
+}
+pH.arr=function(v){var p=this
+    v=_.m(v,function(v){return V(v).d()})
+    p.SetAsArray(v, v.length)
+    return p}
+pH._box=function(){var pH=this
+    pH.SetAsOrientedBox.apply(this,arguments)
+    return pH}
+pH.box=function(){var pH=this, g=G(arguments),
+    o=g.O?g.f:
+        _.x({w:g.f,h:g.s}, O(g.t)?
+        {x:V(g.t).x, y:V(g.t).y, a:g[3]}:
+        {x:g.t, y:g[3], a:g[4]})
+    o.x =  N(o.x,0)
+    o.y =  N(o.y,0)
+    o.a =  N(o.a,0)
+    o.w =  N(o.w, 50)
+    o.h =  N(o.h, 50)
+    return pH._box(o.w/60,o.h/60,V(o.x,o.y,'-'),M.tR(o.a))}
+b2d.fD=function(h){var g=G(arguments),
+    fD= new b2d.FixtureDef()
+    if(g.n){f.isSensor = true}
+    if(h){fD.shape = h}
+    return fD}
+b2d.pH= function(W,H,x,y,a){var g=G(arguments),
+    p=new b2d.PolygonShape()
+//| 50,200[[,200,60,45
+//| [20,300],.. //-> g.a(p,'arr')// -> g.a(p.arr)
 
+    if(g.O){
+
+    }
+
+    if(g.N_){p.box(g.f, g.s, g.t, g[3], g[4])}
+    else if(g.OO_){$a(p, 'arr', g)}
+    return p
+}
+//makes a fixtDef with a polyShape
+b2d.pol = function(){
+    return b2d.fD($a(b2d.pH, arguments)).d(1).fr(.2).r(.2)
+}
+b2d.rec= function(){var g = G(arguments), r, fD, o, v,p=b2d.pH()
+    if(g.OO_){p.arr(g)}  //b2d.cant make multiple recs at once anyway.. so this must mean VERTS!
+
+    else {
+        o=g.O?g.f:
+        {w:g.f,h:g.s,x:g.t,y:g[3],a:g[4],d:g[5]}
+        p.box(o)}
+
+    fD=b2d.fD(p).d(N(o.d,.5))
+    if (g.n){fD.isSensor = true}
+
+    return fD
+
+    /*
+     //will set cols unless you pass in 0
+     if(o.c==0){o.c=null}
+     if(o.c==00){o.c=null;o.C=null}
+     if(o.c=='*'){o.c=$r()}
+     if(o.c=='**'){o.c=$r();o.C=$r()}
+     o.c =o.c||'z'
+     o.C =o.C||'w'
+     o.l = _.tN(o.l,4)
+     o.c1 = o.c1||'z'
+     o.c2 = o.c2||'w'
+     o.s1= _.tN(o.s1)
+     o.s2= _.tN(o.s2,1)
+     //
+     o.x1 = _.tN(o.x1)
+     o.y1 = _.tN(o.y1)
+     o.x2 =_.tN(o.x2);
+     o.y2 = N(o.y2)?o.y2:N(o.r)? o.r*2:100
+     o.r1=_.tN(o.r1)
+     o.r2=_.tN(o.r2,200)
+     // o.i image
+     //o.k kind
+     // o.p  layer position
+
+
+     //o.bm//o.bM
+     //o.g gradient
+
+     //o.m mass
+     //o.t type
+     // o.v = o.v || [] //verts
+     //o.X
+     //o.z clr
+     */
+}
+//b.rec -> graphics
+b2d.AHx=  b2d.AShapex= function(pam, p2){//dep .. use polyH
+    var ag,arr,h
+    ag=(p2)? arguments: pam
+    arr = _.m(ag, function(v){return V(v).div()})
+    h = b2d.pH()
+    h.arr( arr )
+    return h
+}
+pH.setAsVec=function(v, sc){var pH=this //used by SepLib
+    pH.SetAsVector(_.m(v,function(v){return V(v).div(N(sc,30))}))
+    return pH}
+
+b2d.dD= b2d.D= b2d.dyn=function(x,y){
+    var v=V(x,y)
+    return b2d.bD(v.x, v.y).dyn()
+}
+b._f= function(f,c){var b=this,g=G(arguments)
+    if(g.u){return b.GetFixtureList()}
+    f=b.CreateFixture(f)
+    if(c){f.C(c)}
+    return f}
 pos=function(){
 
     b.X=function(x){var g=G(arguments),pos=this.XY()
@@ -626,6 +754,17 @@ b.dyn = function (resumeVel) {var b=this
     b._linVel = null
     return b
 }
+b2d.Common.Math.b2Transform.prototype.toArr = function () {
+
+    var tf = this,
+        pos = tf.position,
+        R = tf.R,
+        col1 = R.col1,
+        col2 = R.col2
+
+
+    return [pos.x, pos.y, col1.x, col1.y, col2.x, col2.y]
+}
 f.dyn=function(){var b=this.B(); b.dyn.apply(b,arguments); return this}
 b.stat = function () {var b=this,
     v = b.lV()
@@ -639,3 +778,61 @@ f.stat=function(){var b=this.B(); b.stat.apply(b,arguments); return this}
 b.kin = function () {return this.type(1)}
 f.kin=function(){var b=this.B(); b.kin.apply(b, arguments); return this}
 //f.getType = f.gT = function(someType){var b=this.B(), t=b.GetType(); return  D(someType)?(someType==t):t}
+b2d.edg= function(x1,y1, x2,y2){
+    var fd = b2d.pol()
+    fd.shape.SetAsEdge(V(x1,y1,'-') , V(x2, y2,'-') )
+    return fd
+}
+b.ap=function(met,g){var b=this;return   b[met].apply(b,g)}
+b.xF=  b.Xx=  b.Xf =b.E =  b.clr = b.empty = b.clear =    function (f) {
+    if(f){this.DestroyFixture(f)}
+    else {this.fs(function (f) {this.xF(f)  })}
+    return this
+}
+w.xB=   w.Xx=   w.Xb=  function(b){var w=this
+    if(U(b)){w.e(function(b){w.xB(b)})}
+    else {w.DestroyBody(b)}
+    return w
+}
+
+b2d.mini=function(){
+    iF=b2d.iF;
+    iB=b2d.iB;
+    iP=b2d.iGP
+    pD=function(){return new PolyDefault()}
+}
+
+wowOld=function(){
+
+
+    pH.arr=  function(){var pH=this
+        var v = b2d.verts.apply(null, arguments)
+
+        pH.SetAsArray(v, v.length)
+
+        return pH
+
+    }
+//make polyShape (by box or arr) for a fD
+    b2d.pH=  b2d.polyH=function me(W,H,x,y,a){var g=G(arguments),
+        p=new b2d.PolygonShape()
+        if(g.N_){//| 50,200[[,200,60,45
+            p.box(g.f,g.s,g.t,g[3],g[4])}
+
+        else if(g.O_){//| [20,300],..
+
+            $a(p, 'arr', g)
+
+            //-> g.a(p,'arr')
+            // -> g.a(p.arr)
+        }
+        return p
+    }
+    pH.set= function(){var pH=this, g=G(arguments)
+        if(N(g[0])){
+            pH.box(g[0],g[1],g[2],g[3],g[4])}
+        else if(O(g[0])){
+            pH.arr.apply(pH,g)}
+        return pH
+    }
+}

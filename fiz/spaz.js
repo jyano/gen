@@ -24,8 +24,6 @@ b2d.oDef = function (o) {
     o.C = o.C || 'w'
     return o
 }
-
-
 w.sTW=w.sToW = function(x,y){var w=this, //works
     x=x/w.z - w.s.x/ w.z,
     y=y/w.z - w.s.y/w.z
@@ -36,7 +34,6 @@ w.wTS=w.wToS=  function(x,y){var w=this,
     y=(y+ w.s.y/w.z)*w.z
     return {x:x, y:y}
 }
-
 f.C = function () {
     var f = this, b = f.B(), w = b.W(), g = G(arguments), o,
         h
@@ -97,8 +94,6 @@ f.bS = function () {
 f.S = f.stg = function () {
     return this.W().s
 }
-
-
 b.pol = function () {
     var b = this, w = b.W(), g = G(arguments), fs, n, arr, o, vs
 
@@ -266,9 +261,6 @@ b.$h = function () {
     h.c.apply(h, G(arguments))
     return h
 }
-
-
-
 w.bfR = function () {
     var w = this, g = G(arguments), b, h, o
     o = S(g.t) ? {x: g.f, y: g.s, i: g.t, w: g[3], h: g[4], c: g[5]} :
@@ -389,7 +381,6 @@ w.flash = function () {
     s.flash.apply(s, arguments)
     return w
 }
-
 w.pop = function (t) {
     var w = this
     t = this.i.T(t || 'no text', 80, 'o', w.hW, 200)
@@ -432,10 +423,7 @@ w.show = function (fn) {
     return w
 
 }
-
 //
-
-
 w.lG=function(c,c2){var w=this,o
     o={c1:c2||'z', c2:c||'r', x1:0,y1:0,x2:0,y2:0}
     _.x(o,R()?(R()?{y2:w.h}:{x2:w.w}):
@@ -446,10 +434,6 @@ w.lG=function(c,c2){var w=this,o
 
     return w
 }
-
-
-
-
 b2d.grad=function(o){o=o||{}
     o.c1 = oO('c',o.c1||'z')
     o.c2 = oO('c',o.c2||'w')
@@ -459,7 +443,6 @@ b2d.grad=function(o){o=o||{}
     o.y1 = N(o.y1)
     return o
 }
-
 w.clr = w.wXx = function(){var w=this
     w.e(function(b){
         if(b!= w.right && b!= w.left&& b!= w.roof&& b!= w.floor)
@@ -467,10 +450,6 @@ w.clr = w.wXx = function(){var w=this
     })
     return w
 }
-
-
-
-
 b.cir= function(){var b=this,g=G(arguments), o= g.f, fd,  h,  f
     //if passed array, it assumes it is arguments for ONE cir
     if(g.A){
@@ -509,9 +488,120 @@ b.cir= function(){var b=this,g=G(arguments), o= g.f, fd,  h,  f
     }
     return f
 }
+b.f=function(){var b=this,g=G(arguments), o,
+    ag=g[0],
+    l= g.L,
+    FD=b2d.iFD
+    if(g.u){return b._f()}
+    if(g.S_){l--}
+    if(g._S){l--}
+
+    if(g.A){g.e0(function(gg){b.ap('f', g.G(gg))})}//   [ [],[],fD,4,[] ]
+
+    else if(g.SA){
+        g.e1(function(f){//       'c',  [ [.,.],[.,.],fD ]
+            if(FD(f)){b._f(f, g.f)}
+            else {
+                if(!S(_.f(f))){f.unshift(g.f)}
+                if(FD(f[1])){b._f(f[1],f[0])}
+                else { $a(b,'f',f) }}})}
+
+    else if (FD(g.f)){return b._f(g[0])}//(fD)
+    else if (g.S_ && FD(g.s)){ b._f(g[1], g[0]) }//('c', fD)
+
+    else if(O(g.s)){
+        o=g.S_?{c:g.f,v:g.r}:{v:g}//if (g.n) {o.s=1}
+        b.pol(o)
+        if(g.n){b.sen(1)}}//pol
+
+    else if(l==1||l==3){
+        o={c:g[0], r:g[1], x:g[2], y:g[3]}
+        if(g.n){o.s=1}
+        b.cir(o)}
+
+    else {
+        o={c:g[0], w:g[1],  h:g[2], x:g[3], y:g[4], a:g[5]}
+        if(g.n){o.s=1}
+        b.rec(o).C(o.c)
+        // $a(b,'rec', g.g)
+    }
+    return b.d(1)
+}
+w.D=function(){var w=this, g=G(arguments,'k'),o,b
+    if(g.u){return w.D(w.hW, w.hH)}
+    o= g.O? g.f:
+        g.O_? {p:g.f, f:g.r}:
+        {p:[g.f,g.s],f:_.r(g,2)}
+    b = w.CreateBody( b2d.D(o.p) )
+    b.K(g.k)
+    $a(b, 'f', g.G( o.f ) )
+    return b
+}//w.sp=w.ct=function(x,y){var w=this;return w.hud.ct(x||w.hW,y||w.hH).drag()}
+w.edgAr = function(){
+    var w=this,
+        g=G(arguments),
+        X=0,
+        Y= 0,
+        x =w.D(400, 400,'z', [ [50, 50,  '-']])//.den(10)
+    _.e(g, function(e){
+
+        e =  w.edgD(e[0], e[1], e[2], e[3])
+        w.wed(e,x,V(g[0][0], g[0][1]))
+    })
 
 
+    return x
+}
+w.boxes = function () {var w = this,g=G(arguments)
+    _.e(g, function (g) {w.box.apply(w,g)})
+    return w}
+w.brcks= w.boxesStat = function () {var w = this,g=G(arguments)
+    _.e(g, function (g) {w.brick.apply(w, g)})
+    return w}
+w.rR = w.randRects = function (ob) {
+    var w = this, g = G(arguments),
+        o = g.O ? g.f : {y: g.f, z: g.s}
+    o.y = N(o.y, 0)
+    o.z = N(o.z, 1)
+    _.t(20,
+        function (i) {
+            w.S(R(1100, 20), R(150, 40 + o.y), $r(),
+                R(40, 15) * o.z, R(40, 15) * o.z).K('randomRect rR')
+        })
+    return w
+}
+w.ten = w.addTenBalls = function (n) {
+    var w = this
 
+    _.t(n || 10, function (i) {
+
+        w.ball(100 + (i * 80), 200)
+    })
+
+    return w
+}
+w.hun = w.addHundBalls = function (n) {
+    var w = this
+    _.t(n || 100, function (i) {
+        w.ball(100 + (i * 8), 50, 10)
+    })
+    return w
+}
+f.xSp= f.Xx=  f.removeSprites=function(){var f=this
+    this._sp = this._sp || []
+    this.SP = this.SP || []
+    this.sprites = this.sprites||[]
+    _.e(f.sprites, function(s){
+        if(O(s) && s.parent ){
+            s.remove()
+        }
+    })
+
+    this.sprites=[]
+    this_sp=[]
+    this.SP=[]
+    return f
+}
 w.pol=function(){var w=this,g=G(arguments), b,o
     if(g.A){return $a(w,'pol',g.f)}
     b2d.mini()
@@ -622,4 +712,156 @@ w.brick = w.bii = function (x, y, W, H) {var w=this, g=G(arguments), b,o
 
     if(g.n){b.sen(true)}
     return b
+}
+w.xD=function(){
+    w.e(function(b){
+
+        if(b.iD()){  b.xx()}
+
+    })
+}
+b.xx = b.kill =  b.destroy = function(){var b=this, v= b.pos()
+    if(b.sprite){b.sprite.rm()}
+    if(b.sp()){b.sp().rm()}
+    b.fs(function(f){f.removeSprites()  })     //if(f.sprite){f.sprite.remove()}
+    b.sprite=null
+    b.SetActive(false)
+    b.W().DestroyBody(b)
+    return v
+}
+f.xx=  f.kill=f.remove=function() {
+    if (this) {this.removeSprites()
+
+        if (this.B()) {
+            this.B().xF(this)
+        }
+    }
+}
+//f.setRemove = function(){var f=this; setTimeout(function(){f.B().destroyFixt(f)},10)} //can combine with kill?
+//f.setDestroy=function(){this.B().K('destroy'); return this}
+f.xB= f.xX= f.XX=  function(){if(this && this.B()){ this.B().xx() }}
+w.edgD = function(x1,y1,x2,y2){var w=this,
+    l = w.l(x1,y1,x2,y2),
+    e = w.D(0,0,b2d.edg(x1,y1,x2,y2)).d(1)
+    e.bS(l) //bS2
+    return e
+}
+w.edgs = function(){var w=this, g=G(arguments), X=0, Y= 0, x =w.D(X,Y, 'z', [[100,100, 400,400, '-']]), x2 =w.D(2000, 1200, 'z', [[400,400,  '-']])
+    if(A(g[0])){
+        //  b = w.D(g[0][0],g[0][1], 'w',20,  g[0][0],g[0][1] )
+        //  w.weld(x,b)
+        // X=g[0][0]
+        // Y=g[0][1]
+    }
+    _.e(g, function(e){if(A(e)){e = w.edgD.apply(w,e)}
+        w.wed(e,x)})//  w.weld(x2  , x)
+    w.dot(300, 300)
+    return x2
+}
+w.edgsD=function(ar){var w=this
+
+    ar = ar || [V(),V(100,100)]
+
+    i = V( ar.shift() )
+    i2 = V( ar.shift() )
+
+    w.edg(i.x, i.y, i2.x, i2.y)
+
+    _.e(ar, function(v){
+
+        i = i2
+        i2 = V(v)
+        w.edg(i.x, i.y, i2.x, i2.y)})
+}
+w.edg= function(x1,y1,x2,y2){var w=this
+    // you would always want a single stat?
+    w.l(x1, y1, x2, y2,'-')
+
+    return w.S(0, 0, b2d.edg(x1,y1,x2,y2))
+}
+w.edgs=function(ar){var w=this,e
+    ar = ar || []
+    i = V( ar.shift() )
+    i2 = V( ar.shift() )
+    e = w.edg(i.x, i.y, i2.x, i2.y)
+    _.e(ar, function(v){
+        i = i2
+        i2 = V(v)
+        e.glu(  w.edg(i.x, i.y, i2.x, i2.y) )
+    })
+}
+w.dance=function(){var w=this
+    w.e(function(b){if(b.iD()){b.thr()}})//w.eD
+    return w
+}
+w.badGuy=function(x,y){var that=this,w=this
+    b = w.D(x, y,'d',60).K('badGuy').bS(
+        w.s.h(x,y)
+    )
+    b.draw=function(frame){var b=this
+        b.sp().rf(['r','g'],
+            [frame[0], frame[1]], 60).dc(60)
+    }
+    b.h = b.health = 100
+    b.cl(function(){b.h--})
+    funcId = I(function(){
+        b.draw( frameByHealth(b) )
+        if(b.h<=0){clearInterval(funcId);b.kill()}
+        function frameByHealth(b){
+            if(b.h<0){b.h=0}
+            if(b.h>100){b.h=100}
+            if(b.h<50){ return [ 1-((b.h/50)),1 ] }
+            else {return [0, 1-((b.h-50)/50)  ]} }
+    }, 300)
+    return b
+}
+w.polyCirc=function(x, y, r, sides){var w=this,
+    b=w.D(x,y)
+
+    b.pol( {v:b2d.polyCirc(r, sides)})
+
+    return b
+}
+w.txC = function () {
+    var w = this
+    _.ev(2, function () {
+        w.e(function (b) {
+            b.fs(function (f) {
+                f.C($r())
+            })
+        })
+    })
+
+}
+w.sH = function (h) {
+    var w = this
+
+    if (U(h)) {
+        return w.H * w.s.scaleY
+    }
+    w.s.scaleY = h / w.H
+    return w
+}
+
+b2d.oDef = function(o){o=o||{}
+    o.x =  N(o.x,0)
+    o.y =  N(o.y,0)
+    o.a =  N(o.a,0)
+    o.w =  N(o.w, 50)
+    o.h =  N(o.h, 50)
+    o.r =  N(o.r, 50)
+    o.c = o.c || 'z'
+    o.C = o.C || 'w'
+    return o
+}
+df.rec=  function (o){
+    o.al=N(o.al,1)
+    o.c = o.c || 'z'
+    o.C = o.C || 'w'
+    o.x =  N(o.x,0)
+    o.y =  N(o.y,0)
+    o.a =  N(o.a,0)
+    o.w=N(o.w,50)
+    o.h=N(o.h,50)
+    return o
 }
