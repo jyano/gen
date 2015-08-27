@@ -53,18 +53,24 @@ _sc=function(o){
     return o
 }
 _bm=function(a){return new cjs.Bitmap(a)}
-$.i = function(){var g=G(arguments),
-    o= g.O? g.f: {sr: g.f, fn: g.s},
-    i=$(new Image())
+
+
+
+$.i = function(){var g=G(arguments),i=$(new Image()),
+
+    o= g.O? g.f: {sr:g.f, fn:g.s}
     if(o.fn){i.load(function(ev){
         o.fn($(ev.target), ev)
     })}
-    if(o.sr){
-        i.src(_.src(o.sr))
-    }
-
+    if(o.sr){i.src(_.src(o.sr))}
     return i
-} //img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
+}
+
+//img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
+
+
+
+
 $Ct= function(a){return new cjs.Container(a)}
 $Bm=   function(bm){var g=G(arguments)
     bm= _bm(bm)

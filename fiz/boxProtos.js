@@ -291,7 +291,7 @@ function wProto(){
 // h.rec( 'g',100, 100,  100, 20)
     w.txC = function () {
         var w = this
-        $.ev(2, function () {
+        _.ev(2, function () {
             w.e(function (b) {
                 b.fs(function (f) {
                     f.C($r())
@@ -365,7 +365,7 @@ function wProto(){
         }
 
         else {
-            $.ev(N(n, .2), upd)
+            _.ev(N(n, .2), upd)
         }
 
         return w
@@ -413,7 +413,7 @@ function wProto(){
         var w = this
         t = this.i.T(t || 'no text', 80, 'o', w.hW, 200)
         t.tw([{a: .5, sxy: .5}, 4000])
-        $.in(4, function () {
+        _.in(4, function () {
             t.rm()
         })
         return this
@@ -442,7 +442,7 @@ function wProto(){
         var w = this, g = G(arguments)
 
 
-        $.ev(.2, function () {
+        _.ev(.2, function () {
 
             w.pen(S(fn) ? window[fn] : fn())
 

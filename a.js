@@ -1,3 +1,11 @@
+dirs=[
+
+
+    '/front/front', '/front/can', '/front/create', '/front/anim',
+
+    'play/graphics', 'fiz','play', 'games'
+]
+
 
 console.log('w'); both(); function both(){
     _ = require('./us')
@@ -55,13 +63,14 @@ $a.g('/play/:a/:p?', function(q,p){
     p.render('play',{app:q.params.a,pam:q.params.p})})
 $a.use( $a.router )
 
-_.e(['/FRONT/front', '/FRONT/can', '/FRONT/create', '/FRONT/anim',
-    'play/graphics', 'fiz', 'show','play'], function(dir){
+_.e(dirs, function(dir){
     dir= __dirname +'/'+ dir
     $a.use($e.static(dir))
 })
 
 
+
 require('http').createServer($a).listen(80, function(){
-    $l('game server listening on port 80')})
+    $l('game server listening on port 80')
+})
 

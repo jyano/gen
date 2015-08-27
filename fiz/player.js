@@ -599,7 +599,7 @@ yShip=function(){
 
     }
     b.shtEv=b.shootOnInt= function(ms, k){var b=this
-        $.ev(N(ms/1000, 0.4), function(){
+        _.ev(N(ms/1000, 0.4), function(){
             if(b.IsActive()){b.sht(k)}})
         return b
     }
@@ -683,7 +683,7 @@ yShip=function(){
             frc=N(g.f, 1)
 
             if(g.p){
-                $.ev(N(g.s, 100*1000),   function(){y.push( frc )})}
+                _.ev(N(g.s, 100*1000),   function(){y.push( frc )})}
             else { y.I(y.v().m(frc*0.1))  }
 
             return y}
@@ -738,7 +738,7 @@ yShip=function(){
 
         core.cl('bul', function(bulF){gG.lV(0).aV(0); z=40;})
 
-        $.ev(2, function(){
+        _.ev(2, function(){
             z += 4
 
             if(shell){ shell.kill() }
@@ -826,7 +826,7 @@ old=function(){
                         ct.b(cell, function(b){
                             b.xy(  j*100+100,  i*100+100 ).sXY(.1)})}})})}
 
-        $.in(3, function(){
+        _.in(3, function(){
             ct.remove()
             s.A( ct = cjs.ct())
             playerGrid()})
