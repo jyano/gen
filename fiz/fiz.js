@@ -836,3 +836,118 @@ wowOld=function(){
         return pH
     }
 }
+
+dd.i = dd.spr = dd.sprite = function (spr) {
+    var dd = this  //it is looking for  a context?
+    if (U(spr)) {
+        return dd.GetSprite()
+    }
+    dd.SetSprite(spr)
+    return dd
+}
+dd.scale = dd.drawScale = dd.dS = function (sc) {
+    var dd = this
+    if (U(sc)) {
+        return dd.GetDrawScale()
+    }
+    dd.SetDrawScale(sc)
+    return dd
+}
+dd.alpha = dd.fillAlpha = dd.fA = function (a) {
+    var dd = this
+    if (U(a)) {
+        return dd.GetFillAlpha()
+    }
+    dd.SetFillAlpha(a)
+    return dd
+}
+dd.line = dd.lineThickness = dd.lT = function (lt) {
+    var dd = this
+    if (U(lt)) {
+        return dd.GetLineThickness()
+    }
+    dd.SetLineThickness(lt);
+    return dd
+}
+dd.flags = dd.fl = function (flags) {
+    var dd = this, DD = b2DebugDraw
+    if (U(flags)) {
+        return dd.GetFlags()
+    }
+
+    if (flags == '*') {
+        flags = (DD.e_shapeBit | DD.e_jointBit | DD.e_pairBit | DD.e_aabbBit | DD.e_centerOfMassBit | DD.e_controllerBit)
+    }
+
+    dd.SetFlags(flags)
+
+    return dd
+}
+w.eEv = w.eachEvery = function (fn) {
+    var w = this
+    z(function () {w.e(fn)})
+    return w
+}
+
+w.inEv = function (n1, n2, fn) {
+    _.in(n1, function () {_.ev(n2, function () {fn()})
+    })
+}
+
+w.evIn = function (n1, n2, fn) {
+    _.ev(n1, function () {
+        _.in(n2, function () {
+            fn()
+        })
+    })
+}
+
+w.dbD = w.bug = w.debugDraw = function () {
+    var w = this, g = G(arguments)
+
+
+    b2d.dbD = b2d.debugDraw = function (sp, sc, flags, al, line) {
+
+        var dd = new b2d.DebugDraw()
+
+        //can pass in either canvas or context
+        if ($.isCan(sp)) {
+            sp = sp.ctx()
+        }
+
+        if (sp) {
+            dd.sprite(sp)
+        }
+        if (sc) {
+            dd.scale(sc)
+        }
+        if (flags) {
+            dd.flags(flags)
+        }
+
+        dd.alpha(N(al, 0.5))
+
+        // dd.line( N(line)? line :1 )
+        // dd.SetLineThickness(1)
+        return dd
+    }
+    // this.scale = dd.scale()
+    w.SetDebugDraw(
+        b2d.debugDraw.apply(null, g)
+    )
+
+    return w
+
+}
+w.step = function (time, a, b) {
+    var w = this
+    w.Step(time, N(a, 8), N(b, 3))
+    return w
+
+}
+w.cF = w.clear = function () {
+    var w = this
+    w.ClearForces()
+    return w
+}
+
