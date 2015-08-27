@@ -1,5 +1,4 @@
 b2d.p(); b2d.mini()  // http://stackoverflow.com/questions/19342932/box2d-collision-impact-calculation
-
 cx.w=  function(){var cx=this, g=G(arguments)
     // (k/o)  : (k/o,  fn)  //  (k/o,  k1/o)  :   (k/o,k1/o, fn)
     //if you have a second pam,, but its not a function
@@ -48,7 +47,6 @@ cx.w=  function(){var cx=this, g=G(arguments)
         cx.bw(g.f, g.s, g.t) :
         cx.ic(g.f, g.s)
 }
-
 // ALL 4 cx handlers give cx (can get points(pt) and normal(n))
 cx.m= function(){var cx=this, m=new b2d.Collision.b2WorldManifold
     cx.GetWorldManifold(m); return m}
