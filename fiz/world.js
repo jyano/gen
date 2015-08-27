@@ -808,25 +808,6 @@ w.cir=   w.ball= w.ba= w.circ=function(x, y, r, c){var w=this, g=G(arguments), b
 }
 
 
-WCIR=function(){W()._(function(){
-
-
-
-   // w.cir({x:500, y:350, r:100, c:'b', C:'z', l:20 }).stat()
-
-
-
-
-    w.D(800, 350).cir({r:100,
-
-        c:'y',
-        C:'z',
-        l:100
-
-    }) //.stat()
-
-
-})}
 
 w.bump =  w.baa = function () {var w=this, g=G(arguments), b,o
 
@@ -1099,96 +1080,6 @@ edgeB=function(){
 
 
         return x}
-    ASEDG=function(){W().C('z')
-
-        w.edg(100,500,1000,0)
-        w.edg(50,50,100,500)
-        w.edg(0,0,1000,100)
-        w.D(410,100, 'w', 30)
-
-        // w.p(300,200,'standard')
-
-    }
-
-    HILLS = function(){W().P()
-        w.edg(100,100, 500,300)
-        w.edg(100,200, 500,400)
-        w.edg(100,300, 500,500)
-        w.edg(1000,100, 600,300)
-        w.edg(1000, 200, 600, 400)
-        w.edg(1000, 300, 600, 500)
-        w.D(410,100, 'r', 20)
-
-
-    }
-    CONEDGE = WORLDCLICK= WELDEDGE= function(){W([1200,600,2400,600], {g:10}).C('r')
-
-        w.Y(450,400)
-        w.edgs([
-
-            [100,300],  [500, 500],   [600,400],   [300,250], [100,300]
-
-        ])
-        x = w.edgAr([400,400, 500, 200],
-            [500,200, 550,600],
-            [550,600,400, 400]).X(1200).track()
-        w.D(700,350, 'b', 20)
-        w.D(700,350, 'r', 20)
-        w.D(700,350, 'y', 20)
-
-
-        w.$(function(x, y){var v = w.sToW(x,y)
-            w.S(v.x, v.y ,'z', [[10,10,'-']])
-        })
-
-        // cjs.t(function(){$l(w.mx + ', ' + w.my) })
-    }
-
-    DRAWEDG1=function(){W(); var p1,p2, d,l
-        w.p(400,100);
-        w.S(200, 200,'r', 400,20)
-        w.$(function(v){
-            if(!p1){p1=v; return} if(!p2){p2=v} else {p1=p2;p2=v}
-
-
-
-            w.edg( p1.x , p1.y , p2.x,  p2.y).K('line')
-
-            w.rC(function(f){  f.B().dot()  }, p1, p2)
-        })
-    }
-
-
-
-    DRAWEDG=function(){W([1200,600,2400,600]); var p1,p2, d,l
-        p= w.p(400,400,'+')
-        w.S(200, 200,'r', 400,20)
-        w.$(function(v){
-            if(!p1){p1=v; return}
-            if(!p2){p2=v} else {p1=p2;p2=v}
-            w.edg( p1.x , p1.y , p2.x,  p2.y).K('pf')
-            w.rC(function(f){  f.B().dot()  }, p1, p2)
-        })
-        p.IsBullet(true)
-        w.pre('pf',  function(f, cx){if(p.shall) { cx.en(0) }})
-        w.b(function(cx){p.shall = false
-            if(! cx.pt().y && p.lV().y<0 ) {return}
-            cx.w(p,'pf', function(){c= cx
-                v = cx.pt()
-                if(   cx.pt().y  ) {
-                    dif=  (p.Y()) -  cx.pt().y
-                    $l(dif)
-                    if(    dif > -10 )  {p.shall = true}}
-            })
-        })
-
-
-
-
-        //w.end(function(cx){cx.w('pf', function(){$l('end')})})
-
-    }
-
 
 
 
@@ -1421,63 +1312,7 @@ recs=function(){
         return o}
 
 
-////////////////////////
-    PH=function(){W()
-        //w.rec()
-        b= w.S(600,200)
 
-        b.pol([-100,0],[0,-100],[100,0])
-
-        b.cir({r:50,lf:['g','w']})
-
-        b.rec({w:400, h:20, lf:['g','w']})
-
-        b.rec(400,20,0,0,45)
-
-
-    }
-    REC=function(){W(0).Y();y.thr()
-
-        w.i.h(100,100,'+')
-            .c({l:20, C:'y', lf:{c1:'b'}})
-            .dc(100)
-            .dr(300,100)
-
-
-        w.$h(200,450,'w',20,'+')
-            .lf({x:-100, c1:'r',c2:'y'})
-            .dr2({w:300,h:100,x:0,y:-100}, {w:100,h:300})
-
-        w.ct(600,200).rec(
-            {w:300,h:200, c:'r',C:'o',l:10,a:-5 },
-            {w:100,h:200,a:20, c:'b', C:'w', l:20})
-            .rec({w: 100, h:200, a:20, c: 'b', C:'w', l: 20}).XY(50,50)// c: {l:20, C:'y'},, lf:{c1:'b',c2:'z'}  //lf:{c1:'r', c2:'b'}//lf:['r','b']//,  bf:1
-
-
-        w.ct(600,450)
-            .rec({w:200, h:100, c:'r', C:'o', l:10, a:-5})
-            .rec({w:100, h:200, c:'r', C:'o', l:10, a:5})
-
-        w.$h(900,200,'+').lf(['b','y'])
-            .dr2({w:200, h:200})
-
-        w.$h(900,400,'+')
-            .lf({c1:'r', c2:'y', x1:-100})
-            .dr2({w:300,h:100,x:0,y:-100}, {w:100, h:300})
-
-
-        b=w.D(800,300)
-        b.rec({w:250, h:300,   bm:'me'})
-        b.rec({w:200,h:200, lf:1, l:2})
-
-
-        w.rec(145,120,10,80,'o')
-
-        w.$h(200,200,'+')
-            .rec(145,120,100,200,'u','y', 20)
-
-
-    }
 
     wowOld=function(){
         pH.arr=  function(){var pH=this

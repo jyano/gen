@@ -474,10 +474,6 @@ FRICJ = function () {
      Notice that surface friction is a constant whereas air friction (drag) must be modified each frame according to the object speed (length of velocity vector)
      */
 }
-
-
-
-
 DEMOGEAR=function(){W()
     w.Gear(
         w.rev( w.baa(100,220,40), w.bi(100,220,100,20) ),

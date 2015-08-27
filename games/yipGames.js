@@ -1,3 +1,11 @@
+
+SHIP=function(){W(10).Y()
+
+    _.t(20, function(){
+        w.S(R(500), R(500),$r(), 20)
+    })
+}
+//
 BIGSHIP=function(){W([1200,600,2400,600],{g:0})
     w.y({
         c:'b',
@@ -740,3 +748,5 @@ STAB=function(){W({g:0})
 
         w.$(function(){ p.I(0,-180) })
     }
+
+//beta

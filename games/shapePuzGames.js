@@ -624,6 +624,83 @@ GEMS=function(){W()
     })
     w.i.h(400,300,'+').bV({v:v})
 }
+PH=function(){W()
+    //w.rec()
+    b= w.S(600,200)
+
+    b.pol([-100,0],[0,-100],[100,0])
+
+    b.cir({r:50,lf:['g','w']})
+
+    b.rec({w:400, h:20, lf:['g','w']})
+
+    b.rec(400,20,0,0,45)
+
+
+}
+
+WCIR=function(){W()._(function(){
+
+
+
+    // w.cir({x:500, y:350, r:100, c:'b', C:'z', l:20 }).stat()
+
+
+
+
+    w.D(800, 350).cir({r:100,
+
+        c:'y',
+        C:'z',
+        l:100
+
+    }) //.stat()
+
+
+})}
+
+REC=function(){W(0).Y();y.thr()
+
+    w.i.h(100,100,'+')
+        .c({l:20, C:'y', lf:{c1:'b'}})
+        .dc(100)
+        .dr(300,100)
+
+
+    w.$h(200,450,'w',20,'+')
+        .lf({x:-100, c1:'r',c2:'y'})
+        .dr2({w:300,h:100,x:0,y:-100}, {w:100,h:300})
+
+    w.ct(600,200).rec(
+        {w:300,h:200, c:'r',C:'o',l:10,a:-5 },
+        {w:100,h:200,a:20, c:'b', C:'w', l:20})
+        .rec({w: 100, h:200, a:20, c: 'b', C:'w', l: 20}).XY(50,50)// c: {l:20, C:'y'},, lf:{c1:'b',c2:'z'}  //lf:{c1:'r', c2:'b'}//lf:['r','b']//,  bf:1
+
+
+    w.ct(600,450)
+        .rec({w:200, h:100, c:'r', C:'o', l:10, a:-5})
+        .rec({w:100, h:200, c:'r', C:'o', l:10, a:5})
+
+    w.$h(900,200,'+').lf(['b','y'])
+        .dr2({w:200, h:200})
+
+    w.$h(900,400,'+')
+        .lf({c1:'r', c2:'y', x1:-100})
+        .dr2({w:300,h:100,x:0,y:-100}, {w:100, h:300})
+
+
+    b=w.D(800,300)
+    b.rec({w:250, h:300,   bm:'me'})
+    b.rec({w:200,h:200, lf:1, l:2})
+
+
+    w.rec(145,120,10,80,'o')
+
+    w.$h(200,200,'+')
+        .rec(145,120,100,200,'u','y', 20)
+
+
+}
 
 //puz
     PUZ=function(){W(0)
@@ -769,7 +846,35 @@ GEMS=function(){W()
             f: function(){
                 cjs.t(function () {b.F(V(0,-3), b.wC())})}}
     }
+DENROT=function(){W(0) //w=b2d.m({g:0})
 
+//by default, bodies have density = 0
+//bodies cannot rotate by force, if their density is 0
+//so by default, bodies wont rotate!!!! but still some mass
+//can even change its density to 0, to suddenly freeze it...
+    //something weird.. if it was already rotating it keeps rotating, and i think its rotation is affected by forces of others..
+    //however others don't rot in response (assuming they also have den-0).  then once it stops rotating, switches back to frozen again?? hmmm.. maybe the rotation is affected only by friction/damping.. and the forces only change its x/y?  test it...
+    r= w.D(300,300,'y',400,20).bo(.5)
+    r2= w.D(300,300,'w',400,10)
+    r3= w.D(300,300,'w',400,10)
+    r4= w.D(300,300,'w',400,10)
+    r5= w.D(300,300,'w',400,10)
+
+    flipDen=function(r){
+        var d = r.den()
+        if(d==0){r.den(1)} else {r.den(0)}}
+    flipStage=function(){
+        if(w.s.X()==0  && w.s.Y()==0){w.s.XY(10000,10000)}
+        else {w.s.XY(0,0)}
+    }
+
+    flipStage()
+    _.ev(6,function(){
+        flipDen(r); flipDen(r2);
+        flipDen(r3);flipStage()
+    })
+
+}
 
 //sports
     HOOPS=function(){W({g:0,w:0})
@@ -841,143 +946,141 @@ GEMS=function(){W()
     }
 
 
-
-//geo
-    MEET=function(){W([  1200, 600, 1200, 600 ],{g:10})
-
-
-        //  w.l(600,0,700,500)//hud
-
-
-        //  w.l(1000,200, 100,900,'-') //red
-
-        //  w.l(50,50,500,350,'/')
-
-        //  w.l(200, 200, 500,500,'+')
-        //  _.t(10, function(i){w.D(100+i*40,100).cir({r:35,lf:{c1:'*',c2:'*'}}).d(.1);w.D(100+i*40,100).cir({r:20,lf:1}).d(.1)})
-
-
-        /*
-         _.t(10, function(i){
-         w.D(100+i*140,160).cir({r:50,
-
-         rf:{
-         c1:$r(),
-         c2:$r(),
-         }
-         }).den(.1)})
-
-
-         w.D(800, 300).cir({r:120,
-         C:'y',   l:2,  bf:'me', ls:['y','x']//?
-         }).den(.1)
-
-
-         */
-        //i thought i may want t for timer/ticker.. but time has no x and y !
-        //move the stage by manipulating the trackee x,y
-        //these funcs can change stage, or the tick can update it every tick based on its value w.tx/ w.ty?
+//query games
 
 
 
-        //  y = w.ship(50,50 ).C('d').mid().track()
+CM=function(){W({g:0, w:0}).Y().C('z')
+
+    x = w.S(100,100,'x',500)
+
+    b =   w.S(600,300,'w', [ [80], [100,300,140,0,46] ])
+
+    //w.d(r.wC())
+
+    f = b.f()
+    f1 = f.N()
+
+    h= f.H()
+
+    h1 =f1.H()
 
 
-        y2 = w.y(100, 300)//.C('x').rot(180)
+    s =  x.fSp()
+}
+
+QUERY=function(){W().Y()
 
 
+    w.S(200,300,'b',100).$(function(){this.C('***')})
+    w.S(200,500, 'g', 100).K('g')
+        .cir({x:100,  r:80, c:'r'})
+        .$(function(){this.C('w')})
+
+    w.e('g', function(b){b.$$(function(){
+        this.B().C('z')
+        this.C('w')})
+    })
+
+    w.e$(function(o){this.C('y')
+        $l('mass: '+this.B().mass().toFixed(3))})
+
+    w.$(function(o){w.ball({x:o.x, y:o.y, r:8})})
+    w.$$(function(o){w.S(o.x, o.y, 'x',[[20,10  ]])})
+    w.S(600,400,'b',100,300);w.dot(600,300)
+    _.in(function(){
+        w.q(600,300,function(f){
+            f.C('r')})})
+
+    w.D(1100,500,'o',80).d(.1).$(function(){
+        this.B().I(100,-2000)
+    })
 
 
-        //w.tRightLeft();//w.showOff()
+    w.S(800,400,[['b', 100],['o',200,100]]).f().$(
+        function(){ this.kill()  }
+    )
 
-        _.evx(5,
-            function(){
-                if( w.t == y2){w.C('w'); w.t=y }
-                else {w.C('z'); w.t= y2}})
-
-
-
-        /* w.S(800,300,'r',200,800)
-         .cl('bul',function(bu){
-         this.sub( bu.B().exp(),'-')})
+}
+CHEM = function(){W({ w: 0//, g:50
+})
 
 
-         w.S(200,300,'r',200,800).cl('bul',function(bu){bu=bu.B()
-         var v=bu.pos()
-         bu.kill()
-         w.pol(v.x,v.y,
-         M.p([[0,50],[-50,0],[0,-50],[50,0]])
-         ).stat()})
-         */
-        //y.track()
+    w.rR(  0, 3 )
+    w.rR(  100,  3 )
+    w.rR(  100,  3 )
+    w.rR(  200,  3 )
+    w.rR(  300,  3 )
+    w.rR(  400,  3 )
 
 
-        t=w.S(500,300,'g',200,800)
+    w.Q(function(f){ f.B().kill() }, 550,250,650,350 )
 
-        t.cl(//'bul',
-            function(bu){var v
+    w.Q(function(f){ f.B().kill() }, 350,  50,    450, 150 )
 
-                bu=bu.B()
-
-                v=bu.XY()// v=bu.kill()
-
-                p=M.p([[0,100],[-100,0],[0,-100],[100,0]]  ).ger(v)
-                w.rad(v.x, v.y, 15,function(f){f.sub(p)})//t.fs(function(f){f.sub(p)})
-                t.fs(function(f){f.C($r())})
+    w.Q(function(f){ f.B().kill() }, 850,  50, 950, 150 )
 
 
-            })
+    y = w.y(600,300).K('y')
+
+    _.ev(1, function(){
+
+        w.cir(R(20,400), 80,12,'r').K('r')
+        w.rec(R(20,900), 100, 24,24,'b').K('b')
+    })
 
 
 
 
+    w.cl('bul', function(f){var b= f.B()
+        this.B().kill()
+        if(b!=y){b.kill()}})
 
-        /*
-         //pol
-         w.D(200,300).pol({
-         v:[[0,100],[0,-100],[200,-150],[200,150]],
-         c:'y',C:'w',l:5,
-         bm:1})
-         w.D(800,300).pol({
-         v:[
-         [[5,100],[0,-100],[200,-150],[200,150]],
-         [[-50,50],[-50,-100],[450,-50],[450,50]]
-         ],
-         c:'b',C:'X',
-         bm:1})
+
+    w.cl('r','b', function(){
+        y.stat()
+        w.e(function(b){if(b!=y){b.kill()}})
+        alert('you win!')
+    })
 
 
 
-         b=w.D(100,300)
-         pf = b.pol({s:1, C:'y',
-         v:[[-200,-100],[0,-200],[100, -100]] })
-         pfs =  b.pol({s:1, C: 'o',
-         v: [  [-100, 0],  [0, -200],  [100, 20],    [0, -150] ]})
-
-
-         cf = b.cir({k:'cir', r:100, x:200, y:-100, d:.2, b:.8, f:100, C:'x'})
-         rf = b.rec({x:100, y:100,w:10,  h:100,   C:'x'})
-         */
-
-
-        /*
-         //turtle
-         turtle =[
-         ['g', [0,0], [-50,-10], [-40,-20],[0,-40],[20,-10] ],
-         ['y', [10,-10], [20,-30],[50,-15], [45,-5] ],
-         ['y', [-50,10],[-50,-10],[-40,-10],[-40,10] ],
-         ['y', [-10,10],[-10,-10],[0,-10],[0,10] ],
-         ['x', 10, 55,-12],
-         ['u', 30,40, 75,-12]]
-         w.D(400, 280,turtle, '-')  //this changes the data object for future uses !!!
-         w.D(600, 280, [
-         ['g', [0,0], [-50,-10], [-40,-20],[0,-40],[20,-10] ],
-         ['y', [10,-10], [20,-30],[50,-15], [45,-5] ],
-         ['y', [-50,10],[-50,-10],[-40,-10],[-40,10] ],
-         ['y', [-10,10],[-10,-10],[0,-10],[0,10] ],
-         ['x', 10, 55,-12, '-'],
-         ['u', 30,40, 75,-12 ,'-']])
-         */
+    y.cl('r', lose)
+    y.cl('b', lose)
+    function lose() {
+        //w.pen('you lose')
+        y.stat()
+        w.e(function (b) {if (b != y){b.kill()}})
+        _.in(self)
     }
 
+
+}
+STACK=function(){W({m:'ball',w:0})
+    w.S(500,600,'y',1000, 20)
+    b =  w.D(500,200, 'o', 40).K('ball')
+    w.boxesStat([350, 260, 880, 30])
+    w.D(310,120,'t',60,60)
+    w.D(320,120,'t',60,60)
+    w.D(340,120,'t',60,60)
+    w.D(350,120,'t',60,60)
+    w.D(370,120,'t',60,60)
+    w.D(380,120,'t',60,60)
+    w.D(550,120,'t',60,60)
+    w.D(570,120,'t',60,60)
+    w.D(580,120,'t',60,60)
+    w.S( 1000,400,'x',200,200)
+    w.S( 1200,200,'x',200,200)
+}
+MJ = function (){W([1200, 600, 2400, 600], {g: 10, m: 'm'  }).Y('+')
+
+    w.D(100, 200, 'y', 150, 100).K('imp')
+    w.D(500, 400, 'y', 50, 100).K('imp')
+    w.D(300, 400, 'r', 50, 50);
+    w.D(800, 400, 'r', 50, 50);
+    w.D(1200, 400, 'r', 50, 50);
+    w.D(1600, 400, 'b', 100, 100).K('m')
+
+    w.e$('imp', function(){this.B().I(0,-50)})  // w.e('imp', function(b){b.$(function(){ this.B().I(0,-50) }) })
+}
 

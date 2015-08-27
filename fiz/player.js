@@ -50,10 +50,6 @@ b2d.cn.j=b2d.cn.jump=function(p){
         p.I(0, m*3)
     }
 }
-
-
-
-
 b2d.cn.jet = function (p) {
     var k = cjs.Keys, vec = p.GetWorldVector(V(0, -100))
 
@@ -183,12 +179,6 @@ w.p1=  w.player1=function(x,y,sc,cn){
     return p
 
 }
-
-
-
-
-
-
 b.jumping = function (y, x) {var b=this, k = cjs.Keys
     if (k.u) {
         if (k.r) {b.lV(x, -(y - x))}
@@ -604,25 +594,7 @@ yShip=function(){
         return b
     }
 
-    SHT=function(){W(0)
-        y= w.y(300,300,'-')
-        y.aD(0).lD(20)
-        y.fixedRot(false)
-        y.SetAngularVelocity(10)
-        z(function(){
-            // y.ApplyTorque(100)
-            if(K.r){
-                y.SetAngularVelocity(15)
-                // y.ApplyTorque(130)
-            }
-            else if(K.l){
-                y.SetAngularVelocity(-15)
-                // y.ApplyTorque(-130)
-            }
-            else {   y.SetAngularVelocity(0)}
-        })
-        // w.show(function(){return y.aV()})
-    }
+
 
     b.thr=function(){this.cn('thrust')}
     b.dir=function(d){var b=this
@@ -655,20 +627,6 @@ yShip=function(){
         return b
     }
 
-    THRUST = function(){W({ g:0//, i:'space.jpg'
-    })
-        w.S(400, 200,'s', 40,40)
-        p = w.p(300, 300, 'thrust')
-        w.tim(3)
-        w.b(function(cx){
-            cx.w('bu', function(f){if(f.B()!=p){this.B().kill()}})
-            cx.w('bu', 'tim', function(t){t.B().kill()})
-        })
-        $.space( function(){
-            w.bu(p.wP(0,-100)).I(p.v(5,'*'))
-        })
-
-    }
     w.y = w.ship= function(){var w=this, g=G(arguments), hS, side, ship, y,o
 
 
@@ -716,12 +674,6 @@ yShip=function(){
 
     }
 
-    SHIP=function(){W(10).Y()
-
-        _.t(20, function(){
-            w.S(R(500), R(500),$r(), 20)
-        })
-    }
     w.gG=function(x,y){var w=this,
 
         gG, core, shell,z

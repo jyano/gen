@@ -1,3 +1,43 @@
+
+//fizAnim
+
+RUN=function() {
+    W().C('r');
+    Q([{id: 'I', src: "/MonsterAIdle.png"}, {id: 'run', src: "/MonsterARun.png"}], q)
+    function q(i) {w.C('g')
+        ss0=  $SS({
+            i: [Q.i('I')],
+            f: {width: 64, height: 64, regX: 32, regY: 32},
+            a: {I: [0, 10, "I", 4]}
+        })
+        i = w.D(400, 200, 'b', 10).fR().Sp(ss0,0,0,5,'+')
+        ss = $SS({
+            i: [Q.i('run')],
+            f: {width: 64, height: 64, regX: 32, regY: 32},
+            // create sprite.. and set the registration point (the point it will be positioned and rotated around)
+            // to the center of the frame dimensions:
+            // sprite.regX = sprite.spriteSheet.frameWidth/2 || 0//sprite.regY = sprite.spriteSheet.frameHeight/2 || 0
+            // To slow down the animation loop of the sprite,
+            // we set the frequency to 4 to slow down by a 4x factor
+            a: {L: [0, 9, "R", 4]}
+        })
+        ss = ss.flp(true, false, false)
+        sp = w.D(160,302,'r',10).Sp(ss).p("R").dr(90).f(10,'+')
+        /*
+         T.tx(function(){
+
+         if (sp.x >= 800){sp.dr(-90).p("R")}
+         if (sp.x < 100) {sp.dr(90).p("I")}
+         if (sp.dr() == 90) {sp.x += sp.vX;sp.y += sp.vY}
+         else {sp.x -= sp.vX;
+         sp.y -= sp.vY}
+         })}
+
+         */
+    }
+}
+
+
 MFIL=function(){W()._(function(){
     b = $H()
     b.graphics
@@ -14,12 +54,47 @@ MFIL=function(){W()._(function(){
 
 
 BI=function(){W()._(function(){
-    b = w.S(600,300, 'r', 200,300).rt(10)
+    b = w.D(600,300, 'r', 200,300).rt(10)
     f= b.f()
+
     f.bI('me')
-})}
 
+})
+}
 
+SHT=function(){W(0)
+    y= w.y(300,300,'-')
+    y.aD(0).lD(20)
+    y.fixedRot(false)
+    y.SetAngularVelocity(10)
+    z(function(){
+        // y.ApplyTorque(100)
+        if(K.r){
+            y.SetAngularVelocity(15)
+            // y.ApplyTorque(130)
+        }
+        else if(K.l){
+            y.SetAngularVelocity(-15)
+            // y.ApplyTorque(-130)
+        }
+        else {   y.SetAngularVelocity(0)}
+    })
+    // w.show(function(){return y.aV()})
+}
+THRUST = function(){W({ g:0//, i:'space.jpg'
+})
+    w.S(400, 200,'s', 40,40)
+    p = w.p(300, 300, 'thrust')
+    w.tim(3)
+    w.b(function(cx){
+        cx.w('bu', function(f){if(f.B()!=p){this.B().kill()}})
+        cx.w('bu', 'tim', function(t){t.B().kill()})
+    })
+    $.space( function(){
+        w.bu(p.wP(0,-100)).I(p.v(5,'*'))
+    })
+
+}
 
 
 SPRBALLS=function(){
@@ -91,7 +166,6 @@ MOVCIR=function(){w=b2d.W({g:0})
 
 
 }
-
 
 
 //err
