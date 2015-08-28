@@ -1113,8 +1113,18 @@ w.vW = function (col, H, x, y) {
     //x-=10?
     return w.R(col, 20, H, x, y).bo(.2).K('wall')
 }
+ticker()
+function ticker(){
 
 
+
+    w.tE=function(fn){var w=this
+        T.t(function(){  w.e(fn)  })
+        return this
+    }
+
+
+}
 
 function basicApps(){
     NRM=function(){W()

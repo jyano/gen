@@ -451,3 +451,10 @@ b2d.AB=function(x1,y1,x2,y2){var g=G(arguments)
     return ab
 }
 
+
+$.mousedown=function(fn){$('body').on('mousedown', fn); return $}
+$.oMD=function(fn){return $.mousedown(function(e){fn(e.clientX, e.clientY, e)})}
+$.mousemove=function(fn){$('body').on('mousemove', fn); return $}
+$.oMM=function(fn){return $.mousemove(function(e){fn(e.clientX, e.clientY, e)})}
+$.mouseup=function(fn){$('body').on('mouseup', fn); return $}
+$.oMU = function (fn) {return $.mouseup(function (e) { fn(e.clientX, e.clientY, e) })}

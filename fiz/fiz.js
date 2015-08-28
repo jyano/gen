@@ -365,6 +365,48 @@ w.e= w.each= function(){var w=this, g=G(arguments), o,
 }
 
 
+w.md= function(fn){var w=this
+    w.i.c.mousedown(function(e){
+        var o={x:w.mx, y:w.my, X: e.clientX, Y: e.clientY, e:e}
+        w.q(w.mx, w.my, function(f){if(f){ o.f=f;  o.b=f.B() }})
+        fn(o)})
+    return w
+}
+w.mu= function(fn){var w=this
+
+    $(w.i.canvas)
+        .mouseup(function(e){fn({x:w.mx, y:w.my, e:e})})
+
+    return w
+
+}
+w.mm= function(fn){var w=this, g=G(arguments)
+    $.mousemove(function(e){
+        var o={x:w.mx, y:w.my, X:e.clientX, Y:e.clientY, e:e}
+        fn(o)
+    })
+    return w
+}
+w.$=function(fn){var w=this
+    w.UI().click(function(e){fn({x:w.mx, y:w.my, e:e})})
+    return w
+}
+w.$$=function(fn){var w=this
+    w.UI().dblclick(function(e){fn({x:w.mx, y:w.my, e:e})})
+    return w}
+w.mdq = function(fn){var w=this
+    w.md(function(e){
+        w.q(e.x,e.y,function(f){ fn(f,e) })})
+    return this
+}
+w.e$=function( ){var g=G(arguments),o
+    o=  F(g.s) ? {k: g.f, fn: g.s} : {fn: g.f}
+    this.e(function(b){ if(b.of(o.k)){b.$(o.fn)} })
+    return this
+}
+
+
+
 wowOld=function(){/*
 
  b.aI=function(sc){var b=this;
@@ -600,6 +642,18 @@ f.isBType = f.isType = function(t){var f=this
     if(t){return f.bType()==t}}
 f.bType=function(){return this.B().GetType()}
 
+
+
+
+f.$=function(fn){var f=this, b=f.B(), w=b.W()
+
+    w.$(function(o){
+        w.q(o.x, o.y, function(fx){
+            if(f==fx){  _.b(fn,f)(o) }
+        })
+    })
+    return f
+}
 
 
 bD.XY= bD.p = bD.ps = bD.xy= function (x, y) {var bD=this, g = G(arguments),p
@@ -979,3 +1033,24 @@ b.hit= b.h=function (x, y, dot) {
     return hit
 }
 
+
+b.$=function(fn){var b=this, w=b.W()
+
+    w.$(function(o){
+
+        w.q(o.x, o.y, function(f){
+            if(f.of(b)){ _.b(fn,f)(o) }
+        })
+    })
+
+    return b
+
+}
+b.$$=function(fn){var b=this, w=b.W()
+    w.$$(function(o){w.q(o.x, o.y, function(f){
+
+        if(f.of(b)){ _.b(fn, f)(o)}
+    })
+    })
+    return b
+}
