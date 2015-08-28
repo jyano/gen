@@ -555,82 +555,88 @@ w.ramps=function(){var w=this
 w.bricks=function(){var w=this,g=G(arguments)
     _.e(g, function(g){w.S.apply(w,g)})
     return w}
-SPACEGRAVMACH= SUNZOOM=function(){W({g:0,w:0})
+scrollApps()
+function scrollApps(){
 
-    w.thrustPlayer=function(x,y){var w=this,p
-        p=w.p(x,y,2.5,'thrust').lD(.8).aD(10000)
-        return p}
-    w.stars(10)
-    w.s.rXY(600,300)
-    w.s.XY(600,300)
+    SPACEGRAVMACH= SUNZOOM=function(){W({g:0,w:0})
 
-    p = w.p().cn('thrust')
-    sun = w.sun()
+        w.thrustPlayer=function(x,y){var w=this,p
+            p=w.p(x,y,2.5,'thrust').lD(.8).aD(10000)
+            return p}
+        w.stars(10)
+        w.s.rXY(600,300)
+        w.s.XY(600,300)
 
-    $.in(.3,function(){
+        p = w.p().cn('thrust')
+        sun = w.sun()
+
+        $.in(.3,function(){
 
 
-        sun.sp().twL([{r:360},10000])
+            sun.sp().twL([{r:360},10000])
 
+        })
+
+
+
+
+        //preload to the rescue ??
+
+
+        w.dJ({a:p,b:sun,cl:1}).fq(10).d(10).l(10)
+
+
+        green(400,100);
+        green(400,200);
+        green(200,100);
+        green(200,200)
+        function green(x,y,fq){
+            w.dJ({
+                a:w.gG(x,y),
+                b:sun,
+                cl:1})
+                .fq(N(fq,1)).d(0).l(15)}
+        b2d.scaleFunc = function(b1,b2,max){
+            max=N(max,2)
+            var dst = 150/M.sqrt(
+                    M.sqr(b1.X()-b2.X())+
+                    M.sqr(b1.Y()-b2.Y())
+                )
+            return dst>max?max:dst
+        }
+
+        T.t(function(){
+            w.s.sXY(
+                b2d.scaleFunc(sun,p,2) )
+            p.centerScale( b2d.scaleFunc(sun,p,2) )
+
+        })
+
+    }
+    SPACE=function(){W({g:0, w:0 });  Q(['earth'],function(){
+
+        s=  w.s
+
+        e=  w.S(200,200,'p',100).d(1).r(2)
+            .bS({i:q.bm('earth'),sc:.13})
+            .K('earth'); eI= e.sp()
+
+        p=  w.player(200,200,2.5, 'thrust')
+            .d(.4).aD(8).lD(.8)
+
+        w.dJ({ a:p, b:e, l:50, f:0.15,
+            coll:1
+        })
+        T.t(function(){var sp, dx=e.X()-p.X(), dy=e.Y()-p.Y(),
+            sc = cjs.cap(
+                300/ M.sqrt(dx*dx+dy*dy), .3, 2 )
+            s.XY(
+                300-sc*(p.X()-300),
+                150-sc*(p.Y()-150) )
+        })
     })
 
-
-
-
-    //preload to the rescue ??
-
-
-    w.dJ({a:p,b:sun,cl:1}).fq(10).d(10).l(10)
-
-
-    green(400,100);
-    green(400,200);
-    green(200,100);
-    green(200,200)
-    function green(x,y,fq){
-        w.dJ({
-            a:w.gG(x,y),
-            b:sun,
-            cl:1})
-            .fq(N(fq,1)).d(0).l(15)}
-    b2d.scaleFunc = function(b1,b2,max){
-        max=N(max,2)
-        var dst = 150/M.sqrt(
-                M.sqr(b1.X()-b2.X())+
-                M.sqr(b1.Y()-b2.Y())
-            )
-        return dst>max?max:dst
     }
 
-    T.t(function(){
-        w.s.sXY(
-            b2d.scaleFunc(sun,p,2) )
-        p.centerScale( b2d.scaleFunc(sun,p,2) )
-
-    })
-
-}
-SPACE=function(){W({g:0, w:0 });  Q(['earth'],function(){
-
-    s=  w.s
-
-    e=  w.S(200,200,'p',100).d(1).r(2)
-        .bS({i:q.bm('earth'),sc:.13})
-        .K('earth'); eI= e.sp()
-
-    p=  w.player(200,200,2.5, 'thrust')
-        .d(.4).aD(8).lD(.8)
-
-    w.dJ({ a:p, b:e, l:50, f:0.15,
-        coll:1
-    })
-    T.t(function(){var sp, dx=e.X()-p.X(), dy=e.Y()-p.Y(),
-        sc = cjs.cap(
-            300/ M.sqrt(dx*dx+dy*dy), .3, 2 )
-        s.XY(
-            300-sc*(p.X()-300),
-            150-sc*(p.Y()-150) )
-    })
-})
 
 }
