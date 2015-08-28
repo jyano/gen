@@ -458,3 +458,50 @@ $.mousemove=function(fn){$('body').on('mousemove', fn); return $}
 $.oMM=function(fn){return $.mousemove(function(e){fn(e.clientX, e.clientY, e)})}
 $.mouseup=function(fn){$('body').on('mouseup', fn); return $}
 $.oMU = function (fn) {return $.mouseup(function (e) { fn(e.clientX, e.clientY, e) })}
+
+
+_.crs=function(a){
+    //it's the opposite of 'src' !
+//it strips '/me.png' -> 'me'
+//why would i need this?
+    return a.split('/').pop().split('.png')[0]
+}
+_.iDU=function(d){
+    if(U(d)){return false}
+    return s$(d).contains('data:')
+}
+_.src =  function f(e){
+
+
+
+//if(Q(e)){$l('q');e=$(e)[0]}
+    if( e.image ){ e=e.image}
+    if( C(e) ){ e = C(e) }
+    if( e.src ){ e = e.src}
+    if( e.toDataURL ){
+        alert('_.src cjs.src tDU')
+        e= _.tDU(e)
+    }
+    return s$(e).contains('data:')?  e
+        :  S(e) ?  _src(e)
+        : 0
+
+    function _src(a){
+        a = $.extension(a); return s$(a).startsWith('/')? a : '/'+ a
+    }
+}
+$.fn.src  = function(a){
+    if( U(a) ){return this.attr('src')}
+    this.attr('src', _.src(a) )
+    return this
+}
+$.i = function(){var g=G(arguments),i=$(new Image()),
+
+    o= g.O? g.f: {sr:g.f, fn:g.s}
+    if(o.fn){i.load(function(ev){
+        o.fn($(ev.target), ev)
+    })}
+    if(o.sr){i.src(_.src(o.sr))}
+    return i
+} //img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
+

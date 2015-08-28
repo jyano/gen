@@ -1,25 +1,4 @@
-_src=function(a){a = $.extension(a); return s$(a).startsWith('/')? a : '/'+ a}
-$.fn.src  = function(a){
-    if( U(a) ){return this.attr('src')}
-    this.attr('src', _.src(a) )
-    return this
-}
-_.src =  function f(e){
 
-
-
-//if(Q(e)){$l('q');e=$(e)[0]}
-    if( e.image ){ e=e.image}
-    if( C(e) ){ e = C(e) }
-    if( e.src ){ e = e.src}
-    if( e.toDataURL ){
-        alert('_.src cjs.src tDU')
-        e= _.tDU(e)
-    }
-    return s$(e).contains('data:')?  e
-        :  S(e) ?  _src(e)
-        : 0
-}
 _xyr=function(o){
     o.x=N(o.x,0)
     o.y=N(o.y,0)
@@ -35,40 +14,7 @@ _sc=function(o){
     return o
 }
 _bm=function(a){return new cjs.Bitmap(a)}
-$.i = function(){var g=G(arguments),i=$(new Image()),
-
-    o= g.O? g.f: {sr:g.f, fn:g.s}
-    if(o.fn){i.load(function(ev){
-        o.fn($(ev.target), ev)
-    })}
-    if(o.sr){i.src(_.src(o.sr))}
-    return i
-}
-//img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
-$Ct= function(a){return new cjs.Container(a)}
-$Bm=   function(bm){var g=G(arguments)
-    bm= _bm(bm)
-    if(g.p){ bm.drag() }
-    return bm
-}
-ct.ct= function(x,y){var ct = this,
-    g = G(arguments), ct1=$Ct()
-    o= g.F_? {fn:g.f} : {x: g.f, y: g.s}
-    ct.A( ct1 )
-    if (o.fn) {o.fn(ct1, ct)}
-    else if (N(o.x)) {ct1.XY(o.x, o.y)}
-    if (g.p){cjs.bindSlide(ct1)}
-    return ct1
-}
-_.crs=function(a){
-    //it's the opposite of 'src' !
-//it strips '/me.png' -> 'me'
-//why would i need this?
-    return a.split('/').pop().split('.png')[0] }
-_.iDU=function(d){
-    if(U(d)){return false}
-    return s$(d).contains('data:')
-}
+_MF = ['me', 'guy', 'chicks', 'sun', 'flame', 'earth']
 Q=function(){var g=G(arguments),  o=g.F?{c:g.f}: {m:g.f,c:g.s}
     o.m = o.m || _MF
     Q = (new cjs.LoadQueue).c(o.c).m(o.m)
@@ -118,62 +64,32 @@ q.m = function(){var q=this, g=G(arguments), _mf, mf
     q.loadManifest( mf )
     return q
 }
-ct.qB=  ct.bQ=function(name, x, y, sX,sY, rt){var b,g=G(arguments)
-    b= Q.b(name)
-        .XY(N(x,0), N(y,0))
-        .sXY(N(sX,1), N(sY,sX||1))
-        .rt(N(rt,0))
-    if(!g.n){b.rC()  }; if( g.p ){ b.drag() };
-    this.A(b );
-    return b
-}
-loadApps()
-function loadApps() {
-    TXWQ = function () {
-        WQ({}, function () {
-            w.C('p').i.A(Q.b('me'), Q.b('guy'))
-        })
-    } // <- WQ({C:'r'})
-    WINDING = function () {
-        W()._(function () {
-            //$.header().A($.h1('grahics winding')).A()
-            h = w.i.h().graphics.f("pink").dr(20, 20, 450, 360)
-                .arc(160, 160, 110, 0, Math.PI * 2, true).closePath()
-                .arc(330, 240, 110, 0, Math.PI * 2, true).closePath()
-            bm = w.i.qB('chicks').X(470).drag()
-            bm.mask = h.same().X(470)
-        })
-    }
-    MF = function () {
-        W().C('r')
-        Q(
-            ['me', 'guy', 'chicks', 'sun'],
-            function () {
-                w.C('g')
-                w.i.A(
-                    Q.b('me'),
-                    Q.b('guy')
-                )
-            }
-        )
 
-    }
-    QTX = function () {
-        WQ(function () {
-            i = w.i.qB('me', 0, 0, 3)
-        })
-    }
-    QUEUEMUG = function () {
-        W()._(function (w) {
-            me = w.i.qB("me").drag()
-        })
-    } // its how i can preload someone's mug as 'mug' !//  mug= s.bData( qu.gR("mug") ).drag()
+
+$St=function(){var st, g=G(arguments), cv
+    //get by canvas ID
+    cv = g.A? g.f[0]:
+        //if you pass it a canvas OR a $canvas object
+        O(g.f)? $(g.f)[0] :
+            //create a new canvas
+            $.c(g.f||'p',g.s||1200,g.t||600,g[3],g[4])[0]
+    st = new cjs.Stage( cv )
+    st.cv=   st.c=st.can= $(st.canvas)
+    st.cv0=  st.cv[0]
+    st.xc= st.cv0.getContext('2d')
+    if(g.p){st.t()}
+    return st.A()
+    //.t()
 }
-b.Bm=function(iS, x,y,sX,sY,rt){var b=this, w= b.W(),g=G(arguments);b.gx = b.gx || w.g.ct()
-    if(S(iS)){this.gx.bm(iS, fn)}
-    if(O(iS)){fn(iS);return iS}
-    return b
-    function fn(bm) {bm.rC().XY(N(x,0),N(y,0)).sXY(N(sX,1), N(sY,sX||1)).rt(N(rt,0))}
+$Ct= function(a){return new cjs.Container(a)}
+ct.ct= function(x,y){var ct = this,
+    g = G(arguments), ct1=$Ct()
+    o= g.F_? {fn:g.f} : {x: g.f, y: g.s}
+    ct.A( ct1 )
+    if (o.fn) {o.fn(ct1, ct)}
+    else if (N(o.x)) {ct1.XY(o.x, o.y)}
+    if (g.p){cjs.bindSlide(ct1)}
+    return ct1
 }
 ct.bm=  ct.b= function self(){var ct=this,g=G(arguments), bm,
 
@@ -205,22 +121,6 @@ ct.bm=  ct.b= function self(){var ct=this,g=G(arguments), bm,
 
     return ct
 
-}
-_MF = ['me', 'guy', 'chicks', 'sun', 'flame', 'earth']
-$St=function(){var st, g=G(arguments), cv
-    //get by canvas ID
-    cv = g.A? g.f[0]:
-        //if you pass it a canvas OR a $canvas object
-        O(g.f)? $(g.f)[0] :
-            //create a new canvas
-            $.c(g.f||'p',g.s||1200,g.t||600,g[3],g[4])[0]
-    st = new cjs.Stage( cv )
-    st.cv=   st.c=st.can= $(st.canvas)
-    st.cv0=  st.cv[0]
-    st.xc= st.cv0.getContext('2d')
-    if(g.p){st.t()}
-    return st.A()
-    //.t()
 }
 ct.d= ct.dot=function(c, x, y){var ct=this, o, d, tw, g=G(arguments)
 
@@ -265,3 +165,21 @@ ct.d= ct.dot=function(c, x, y){var ct=this, o, d, tw, g=G(arguments)
     d.$$(function(){ tw.$() })
     return d.K('dev dot')
 }
+ct.qB=  ct.bQ=function(name, x, y, sX,sY, rt){var b,g=G(arguments)
+    b= Q.b(name)
+        .XY(N(x,0), N(y,0))
+        .sXY(N(sX,1), N(sY,sX||1))
+        .rt(N(rt,0))
+    if(!g.n){b.rC()  }; if( g.p ){ b.drag() };
+    this.A(b );
+    return b
+}
+
+
+
+$Bm=  function(bm){var g=G(arguments)
+    bm= _bm(bm)
+    if(g.p){ bm.drag() }
+    return bm
+}
+

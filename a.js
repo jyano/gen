@@ -5,7 +5,7 @@ dirs=[
 
     'play/graphics',
     'fiz',    'fiz/deps',  'fiz/joints',
-    'play', 'games'
+    'play', 'games','apps'
 ]
 
 
