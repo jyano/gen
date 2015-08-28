@@ -149,7 +149,7 @@ function old(){
 //static body for ground, dynamic for objs
 }
 
-//to front
+//to front/both
 
 
 _.adj= cjs.adj = cjs.camAdj = function (income, tax) {
@@ -177,7 +177,35 @@ _.cap= cjs.cap = function (n, m, M) {
         : n > M ? M
         : n
 }
+_.eW=function(str, fn){
 
+    var _gf = str.trim().split(' ')
+
+
+    _.e(_gf,
+
+        function(str){
+
+            str = str.trim()
+
+            // $l('str: '+ str)
+            if(str) {
+                fn( str.trim() )
+            }
+        }
+
+    )
+
+}
+_.ct = function(arr, item){
+
+    arr = arr || []
+
+    if(S(item)){item=item.trim()}
+
+    return _.contains(arr, item)
+
+}
 //to easel
 ct.aC=function(ac){
     var ct=this
@@ -397,3 +425,29 @@ dd.flags = dd.fl = function (flags) {
 
     return dd
 }
+
+b2d.AB=function(x1,y1,x2,y2){var g=G(arguments)
+    var g=G(arguments), ab
+    ab = new b2d.Collision.b2AABB
+    if(g.p){
+
+        ab.lowerBound.Set(x1, y1)
+        ab.upperBound.Set(x2, y2)
+
+    }
+    else {
+
+
+        if(U(g[2])){
+            ab.lowerBound.Set(    g[0]/30-0.01,  g[1]/30-0.01   )
+            ab.upperBound.Set(    g[0]/30+0.01,  g[1]/30+0.01     )
+        }
+
+        else {
+            ab.lowerBound.Set(g[0]/30, g[1]/30)
+            ab.upperBound.Set(g[2]/30, g[3]/30)
+        }
+    }
+    return ab
+}
+

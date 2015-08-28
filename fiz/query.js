@@ -1,444 +1,13 @@
 b2d.p()
-ct.d= ct.dot=function(c, x, y){var ct=this, o, d, tw, g=G(arguments)
 
-    if(b2d.isGPoly(g.f)){
 
-        _.e(g.f.vs(), function(v){ct.dot(V(v))})
 
-        return this
-    }
 
 
-    if(g.A){
+ray()
 
-        _.e(c, function(G){
-            if( A(G) ){ ct.dot.apply(ct, G) }
-            else { ct.dot(G) }
-        })
-
-        return this
-    }
-
-
-    o = g.S_? (
-
-        b2d.iB(g.s)? {c:g.f, x:g.s.sX , y: g.s.sY }:
-
-        O(g.s)? {c:g.f, x:g.s.x, y: g.s.y}:
-        {c:g.f, x:g.s, y: g.t}
-
-    ):
-        b2d.iB(g.f)? { x:g.f.sX , y: g.f.sY }:
-        g.O_? {x:g.f.x,  y: g.f.y}:
-        {x:g.f, y:g.s}
-
-
-
-    o.x= N(o.x, ct.W()/2)
-    o.y= N(o.y, ct.H()/2)
-    o.c = o.c||'y'
-    d = this.h(o.x, o.y).cir(8,  o.c, 'z', 2).al(.7).drag()
-    tw=d.twL( [{sxy:1.3},100], [{sxy:1},100]).$()
-    d.$$(function(){ tw.$() })
-    return d.K('dev dot')
-}
-
-
-w.d= w.dot=function(){var w=this,g=G(arguments), o
-
-    if(g.S_){
-        o =  N(g.s)?
-        {c: g.f, x: g.s, y:g[2]} :
-        {c: g.f, x:V(g.s).x, y:V(g[1]).y}
-    }
-
-    else {
-        o= N(g.s)?
-        {x:g.f, y:g.s} :
-
-        {x:V(g.f).x, y:V(g.f).y}
-    }
-
-
-    if(g.m){
-        w.dot(o.c,o.x,o.y,'-')
-        w.dot(o.c,o.x,o.y,'/')
-        w.dot(o.c,o.x,o.y,'+')
-        w.dot(o.c,o.x,o.y) }
-
-    else if(g.p){w.fg.dot(o.c,o.x,o.y)}
-    else if(g.n){w.bg.dot(o.c,o.x,o.y)}
-    else if(g.d){w.g.dot(o.c,o.x,o.y)}
-    else {w.i.dot(o)}
-    return w
-}
-
-b.dot= function(){var b=this,  w= b.W(),  g= G(arguments)
-    g.N_? (
-        g.p?
-            T.t(function(){b.dot(g.f,g.s)}):
-            w.d(b.wP(g.f,g.s)))
-        :
-
-        w.d(g.f||'y',  g.p? b.wC() : b )
-
-    return b
-
-}
-
-f.dot=function(c){var f=this, w=f.B().W(),v
-
-    v=f.cen()
-
-    if(S(c)){w.dot(c,v)}
-    else {w.dot(v)}
-
-    return f
-}
-f.$=function(fn){var f=this, b=f.B(), w=b.W()
-
-    w.$(function(o){
-        w.q(o.x, o.y, function(fx){
-            if(f==fx){  _.b(fn,f)(o) }
-        })
-    })
-    return f
-}
-b.$=function(fn){var b=this, w=b.W()
-
-    w.$(function(o){
-
-        w.q(o.x, o.y, function(f){
-            if(f.of(b)){ _.b(fn,f)(o) }
-        })
-    })
-
-    return b
-
-}
-b.$$=function(fn){var b=this, w=b.W()
-    w.$$(function(o){w.q(o.x, o.y, function(f){
-
-            if(f.of(b)){ _.b(fn, f)(o)}
-        })
-    })
-    return b
-}
-
-
-$.mousedown=function(fn){$('body').on('mousedown', fn); return $}
-$.oMD=function(fn){return $.mousedown(function(e){fn(e.clientX, e.clientY, e)})}
-w.md= function(fn){var w=this
-    w.i.c.mousedown(function(e){
-        var o={x:w.mx, y:w.my, X: e.clientX, Y: e.clientY, e:e}
-        w.q(w.mx, w.my, function(f){if(f){ o.f=f;  o.b=f.B() }})
-        fn(o)})
-    return w
-}
-$.mouseup=function(fn){$('body').on('mouseup', fn); return $}
-$.oMU = function (fn) {return $.mouseup(function (e) { fn(e.clientX, e.clientY, e) })}
-
-
-w.mu= function(fn){var w=this
-
-    $(w.i.canvas)
-        .mouseup(function(e){fn({x:w.mx, y:w.my, e:e})})
-
-    return w
-
-}
-
-
-
-
-
-
-
-$.mousemove=function(fn){$('body').on('mousemove', fn); return $}
-$.oMM=function(fn){return $.mousemove(function(e){fn(e.clientX, e.clientY, e)})}
-w.mm= function(fn){var w=this, g=G(arguments)
-    $.mousemove(function(e){
-        var o={x:w.mx, y:w.my, X:e.clientX, Y:e.clientY, e:e}
-        fn(o)
-    })
-    return w
-}
-w.$$=function(fn){var w=this
-    w.UI().dblclick(function(e){fn({x:w.mx, y:w.my, e:e})})
-    return w}
-b2d.AB=function(x1,y1,x2,y2){var g=G(arguments)
-
-    var g=G(arguments), ab
-
-
-    ab = new b2d.Collision.b2AABB
-
-    if(g.p){
-
-        ab.lowerBound.Set(x1, y1)
-        ab.upperBound.Set(x2, y2)
-
-    }
-    else {
-
-
-        if(U(g[2])){
-            ab.lowerBound.Set(    g[0]/30-0.01,  g[1]/30-0.01   )
-            ab.upperBound.Set(    g[0]/30+0.01,  g[1]/30+0.01     )
-        }
-
-        else {
-            ab.lowerBound.Set(g[0]/30, g[1]/30)
-            ab.upperBound.Set(g[2]/30, g[3]/30)
-        }
-    }
-
-
-    return ab
-}
-b2d.mJ=function(body, tX,tY){
-    if(O(tX)){tY=tX.y;tX=tX.x}
-    var md = new b2d.Joints.b2MouseJointDef
-    md.bodyA = w.GetGroundBody()
-    md.bodyB = body
-    md.target = V(tX, tY)
-    md.collideConnected = true
-    md.maxForce = 1000 * body.GetMass()
-    md.dampingRatio = 0
-    return md}
-b.hit= b.h=function (x, y, dot) {var b = this, w = b.W(), g=G(arguments)
-
-    hit
-
-    if (g.p) {w.dot(x, y)}
-
-    b.fs(function (f) {
-
-        if (f.hit(x, y)) { hit = true }
-
-    })
-
-    return hit
-}
-f.tP=  f.hit=f.testPoint=f.test=function(){var f=this,b=f.B(),w=b.W(),g=G(arguments),  v
-
-    v = V(g.f, g.s)
-
-    if(g.p){ w.dot(v) }
-
-    return f.H().TestPoint(
-        b.tf(),
-        v.div()
-    )
-
-     //is a point within the fixture // very accurate
-
-}
-
-mJ.tg=function(x,y){
-    if (U(x)) {return this.GetTarget().m()}
-    this.SetTarget(V(x, y).div())
-    return this
-}
-     // world mouse down vs canvas mouse down!!! // canvas mouse down just uses $.oMD
-
-w.Q=function(){var w = this, g=G(arguments),o
-    o = g.O? g.f:
-        g.S_ && N(g.s)? {k: g.f, x: g.s, y: g.t, fn:g[3]} :
-            g.S_ && O(g.s)? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
-                g.F_? _.x({fn:g.f, n:0}, O(g.s)? {x1:g.s.x, y1:g.s.y} : {x1:g.s, y1: g.t, x2:g[3], y2:g[4]}) :
-                    g.O_? {x1: g.f.x,  y1: g.f.y, fn:g.s} :
-                    {x1:g.f, x2:g.s,fn:g.t}
-
-    o.n = 0
-
-    w.QueryAABB(
-        function(f){var res; o.n++
-            res = o.fn(f, f.B(), o.n)
-            if(res!==false){ return true} },
-        b2d.AB( o.x1, o.y1, o.x2, o.y2 )
-    )
-    return w
-}
-//but it makes a rectangle not square
-
-w.rad=function(x,y,r,fn){return this.Q({   x1: x-r,  y1:y-r,     x2: x+r,  y2:y+r,    fn: fn    })}
-w.q=function(){var w=this,g=G(arguments),o,fx
-
-    o= g.S_ && N(g.s)? {k: g.f, x: g.s, y: g.t, fn:g[3]} :
-            g.S_ && O(g.s)? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
-                g.N_ ? {x: g.f, y: g.s, fn: g.t, k:g[3]} :
-                    g.A_? {x: g.f[0], y:g.f[1], fn: g.s, k: g.t} :
-                    {x: g.f.x, y: g.f.y, fn: g.s, k: g.t}
-
-    w.QueryAABB(
-        function(f){
-            if (f && f.of(o.k) && f.tP(o.x, o.y) ){ fx = f; return }
-            return true },
-        b2d.AB(o.x, o.y)
-    )
-
-    if(fx){ if(F(o.fn)){ _.b(o.fn,fx)(fx); return w } return fx }
-
-}
-w.tE=function(fn){var w=this
-    T.t(function(){  w.e(fn)  })
-    return this}
-w.e= w.each= function(){var w=this, g=G(arguments), o,
-    bs=w.GetBodyList(),
-    k,
-    b,arr
-
-    o = g.S_? {k:g.f, fn:g.s}: {fn:g.f}
-
-    if(g.u){ alert('w.e') }
-
-
-    arr=[]
-
-    while(bs){b=bs;  bs=bs.N()
-        if(b.of(o.k)){  arr.push(b) }
-    }
-
-    _.e(arr, function(b){  o.fn(b)  })
-
-    return w
-}
-w.$=function(fn){var w=this
-    w.UI().click(function(e){fn({x:w.mx, y:w.my, e:e})})
-    return w
-}
-w.e$=function( ){var g=G(arguments),o
-    o=  F(g.s) ? {k: g.f, fn: g.s} : {fn: g.f}
-    this.e(function(b){ if(b.of(o.k)){b.$(o.fn)} })
-    return this
-}
-
-
-fD.K =   function (k) {var fD=this
-    if (U(clas)) {return fD.getClass()}
-    fD.classes = fD.classes || []
-    fD.classes.push(clas)
-    return fD
-}
-fD.getClasses = fD.getClass = function () {var g = G(arguments), fD=this, classes
-    fD._K = fD._K|| []
-    ks = fD.classes.join(' ')
-    if (g.p) {ks += ' : ' + fD.body().getClasses()}
-    return ks}
-
-_.eW=function(str, fn){
-
-    var _gf = str.trim().split(' ')
-
-
-    _.e(_gf,
-
-    function(str){
-
-        str = str.trim()
-
-       // $l('str: '+ str)
-        if(str) {
-            fn( str.trim() )
-        }
-    }
-
-    )
-
-}
-
-b.K= function(){var b=this,g=G(arguments);
-    this._K = this._K || []
-    if(g.u){return this._K.join(' ')}
-    if(g.O){this.K(g.f.k); return this}
-    _.eW(g.f, function(k){ if(!b.of(k)){b._K.push(k)}})
-    return this
-}
-f.K =  function(){var f=this, g=G(arguments);
-    this._K=this._K||[]
-    if(g.u){return (this._K).join(' ')}
-    if(g.O){this.K(g.f.k); return this}
-    _.eW(g.f, function(k){ if( !f.of(k)){ f._K.push(k)} })
-    return this
-}
-
-_.ct = function(arr, item){
-
-    arr = arr || []
-
-    if(S(item)){item=item.trim()}
-
-    return _.contains(arr, item)
-
-}
-
-b.of=function(k){
-
-    if( b2d.iF(k) ){ k = k.B() }
-
-    return !k ||  _.ct(this._K, k) || this == k
-
-}
-b.is=function(k){
-    return k && this.of(k)
-}
-f.of=function(k){
-
-    if(!this){return false}
-
-
-    if(!k){return true}
-
-    return this==k ||
-        (S(k) && _.contains(this._K||[], k.trim()))
-        ||
-        (this.B() && this.B().of(k))
-
-
-}
-f.is=function(k){return k && this.of(k)}
-
-//if(g.A){_.e(g.f, function(k){f.K(k)}); return f}
-w.mJ = function(){var w=this, g=G(arguments), o, j,
-
-    mJD = new b2d.Joints.b2MouseJointDef
-
-    dR=0
-    mF=50000000
-
-    o={
-
-        a:w.GetGroundBody(),
-
-        b:g.f, x:g.s, y:g.t,
-
-        dR: N(g[3], dR),
-
-        mF: N(g[4], mF),
-
-        cl: g.N? true : false
-
-    }
-
-
-    mJD.bodyA = o.a
-    mJD.bodyB = o.b
-
-    mJD.target = V(o.x, o.y,'-')
-    mJD.dampingRatio = o.dR
-    mJD.maxForce = o.mF
-    mJD.collideConnected = o.cl
-
-    return w.J(mJD)
-}
-w.mdq = function(fn){var w=this
-
-    w.md(function(e){ w.q(e.x,e.y,function(f){ fn(f,e) })})
-
-    return this
-}
-ray=function(){
+mouse()
+function ray(){
     IMP=function(){W({g:0, w:0}).Y()
 
         // y.rt(90).XY(200,240)
@@ -563,7 +132,7 @@ ray=function(){
 
             w.i.e(function(c){
                 if( c.of('dot') || c.of('line') ){c.rm()}
-               // if( c.K() == 'dot' || c.K()=='line' ){c.rm()}
+                // if( c.K() == 'dot' || c.K()=='line' ){c.rm()}
             })
             w.d('b', p1); w.d('r', p2); w.l( p1.x , p1.y , p2.x,  p2.y).K('line')
             w.rC(function(f){  f.B().dot()  }, p1, p2)
@@ -613,316 +182,141 @@ ray=function(){
         return op
 
     }
-};ray()
-b._r=function(n){
-
-    n=N(n,100)
-
-    h =
-
-    this.f().H()
-
-    if (h.SetRadius) h.SetRadius(n/30)
-
-}
-b.fSp=function(){
-
-  return  this.f().sprites[0]
 }
 
 
-later=function(){
-    $.touchstart=function(func){
+function mouse(){
+    b2d.mJ=function(body, tX,tY){
+        if(O(tX)){tY=tX.y;tX=tX.x}
+        var md = new b2d.Joints.b2MouseJointDef
+        md.bodyA = w.GetGroundBody()
+        md.bodyB = body
+        md.target = V(tX, tY)
+        md.collideConnected = true
+        md.maxForce = 1000 * body.GetMass()
+        md.dampingRatio = 0
+        return md}
 
-        $('body').on('touchstart', func)
-        return this}
-    $.touchend=function(func){
+    mJ.tg=function(x,y){
+        if (U(x)) {return this.GetTarget().m()}
+        this.SetTarget(V(x, y).div())
+        return this
+    } // world mouse down vs canvas mouse down!!! // canvas mouse down just uses $.oMD
+    w.mJ = function(){var w=this, g=G(arguments), o, j,
 
-        $('body').on('touchend', func)
-        return this}
+        mJD = new b2d.Joints.b2MouseJointDef
 
+        dR=0
+        mF=50000000
 
-    /*
-     return U(a)? true
-     : S(a)? f.ofClass(a)
-     : (f==a || (g.N? b==a: false) )
+        o={
 
-     }*/
+            a:w.GetGroundBody(),
 
+            b:g.f, x:g.s, y:g.t,
 
-    f.hasAllClasses = function(clas){
-        if (U(clas) || clas == '') {
-            return false
+            dR: N(g[3], dR),
+
+            mF: N(g[4], mF),
+
+            cl: g.N? true : false
+
         }
 
-        var body = this, anyYes = null, anyNo = null
 
-        _.each(arguments, function (clas) {
+        mJD.bodyA = o.a
+        mJD.bodyB = o.b
 
+        mJD.target = V(o.x, o.y,'-')
+        mJD.dampingRatio = o.dR
+        mJD.maxForce = o.mF
+        mJD.collideConnected = o.cl
 
-            if (body.hasClass(clas)) {
-                anyYes = true
-            }
+        return w.J(mJD)
+    }
+    w.mdq = function(fn){var w=this
+        w.md(function(e){ w.q(e.x,e.y,function(f){ fn(f,e) })})
+        return this}
+    w.$=function(fn){var w=this
+    w.UI().click(function(e){fn({x:w.mx, y:w.my, e:e})})
+    return w
+}
+    w.e$=function( ){var g=G(arguments),o
+        o=  F(g.s) ? {k: g.f, fn: g.s} : {fn: g.f}
+        this.e(function(b){ if(b.of(o.k)){b.$(o.fn)} })
+        return this
+    }
+    f.$=function(fn){var f=this, b=f.B(), w=b.W()
 
-            else if (!body.hasClass(clas)) {
-                anyNo = true
-            }
+        w.$(function(o){
+            w.q(o.x, o.y, function(fx){
+                if(f==fx){  _.b(fn,f)(o) }
+            })
+        })
+        return f
+    }
+    b.$=function(fn){var b=this, w=b.W()
 
+        w.$(function(o){
 
+            w.q(o.x, o.y, function(f){
+                if(f.of(b)){ _.b(fn,f)(o) }
+            })
         })
 
-        return (anyYes && !anyNo)
-
-
-    }
-    f.classCount = function () {
-        if (!A(this.classes)) {
-            return 0
-        }
-        return this.classes.length
+        return b
 
     }
-    f.removeClass=function(clas){
-        var ix
-        this.classes = this.classes || []
-        if (S(clas)) {
+    b.$$=function(fn){var b=this, w=b.W()
+        w.$$(function(o){w.q(o.x, o.y, function(f){
 
-            if (this.hasClass(clas)) {
-
-                ix = this.classes.indexOf(clas)
-
-                this.classes[ix] = null
-
-                this.classes = _.compact(this.classes)
-
-
-            }
-
-
-        }
-        return this
-    }
-    f.near= function (what) {
-        var body = this.GetBody()
-        //return (this.K()==what) || (body.K()==what)
-        // if has sibling fixture that matches, return IT!
-        return false
-
-    }
-    f.D = f.data = function (data) {
-        if (U(data)) {
-            return this.GetUserData()
-        }
-        this.SetUserData(data);
-        return this
-    }
-
-    /*
-     b.D=b.data=function(d){var b=this
-     if(U(d)){return b.GetUserData()}
-     b.SetUserData(d); return b}
-     b.classCount=function(){var b=this
-     if(!A(b.classes)){return 0}
-     return b.classes.length
-     }
-
-
-     b.toggleClass=function(k){var b=this
-     if(U(k)||k==''){return false}
-     if(b.hasClass(k)){b.removeClass(k)}
-     else {b.addClass(k)}
-     return b}
-
-
-     b.removeClass=function(k){var b=this, ix; b.classes=b.classes||[]
-     if(S(k) && b.hasClass(k)){
-     ix = b.classes.indexOf(k)
-     b.classes[ix] = null
-     b.classes = _.compact(b.classes)}
-     return b}
-     b.not = b.notAny = function (k) {
-     //this is an AND: ALL MUST BE FALSE
-     var b=this, not = true
-     _.e(k, function(k){if(b.is(k)){not=false}})
-     return not
-     }
-
-
-     b.contains=function(k){var b=this
-     var fs=b.fixts(), contains=false
-     _.e(fs,function(f){
-     if(f.hasClass(k)){contains=true}})
-     return contains
-     }
-
-
-     b.hasAllClasses=function(k){
-     if(U(k)||k==''){return false}
-     var b=this, anyYes = null, anyNo = null
-     _.e(arguments, function(k){
-     if(b.hasClass(k)){anyYes=true}
-     else if(!b.hasClass(k)){anyNo=true}})
-     return (anyYes && !anyNo)
-     }
-     */
-    f.toggleClass=function(clas){
-        if (U(clas) || clas == '') {
-            return false
-        }
-
-        if (this.hasClass(clas)) {
-            this.removeClass(clas)
-        } else {
-            this.addClass(clas)
-        }
-
-        return this
-    }
-
-
-    TAG=function(){W({g:0})
-        w.pop('i like how the ball bounces')
-
-        w.show(function(){ return y.K()})
-
-        y = w.ship(100,100)
-
-        _.t(10,function(){
-
-            w.D(600,300,'b',40).r(.8).lD(.1).K('ball')
+            if(f.of(b)){ _.b(fn, f)(o)}
         })
-
-        w.with('ball', function(f2){var vel  //$l('oth: ' + other.K() + ' - ' + other.B().K())
-            var f=this
-
-            if(f2.of('ship')){
-                w.e(function(b){
-                    if(b.isStat() &&  b.of('ball') ){
-                        b.dyn(true)
-                        b.C('b')}
-                })
-            }
-
-            if(f2.of('bul')){
-
-                f.C('r'); f.B().stat()
-
-            }})
-
-        //ship, 10 balls,
+        })
+        return b
     }
+    $.mousedown=function(fn){$('body').on('mousedown', fn); return $}
+    $.oMD=function(fn){return $.mousedown(function(e){fn(e.clientX, e.clientY, e)})}
+    w.md= function(fn){var w=this
+        w.i.c.mousedown(function(e){
+            var o={x:w.mx, y:w.my, X: e.clientX, Y: e.clientY, e:e}
+            w.q(w.mx, w.my, function(f){if(f){ o.f=f;  o.b=f.B() }})
+            fn(o)})
+        return w
+    }
+    $.mouseup=function(fn){$('body').on('mouseup', fn); return $}
+    $.oMU = function (fn) {return $.mouseup(function (e) { fn(e.clientX, e.clientY, e) })}
+    w.mu= function(fn){var w=this
 
-    /*
-     _.ct= function(arr, str){var g=G(arguments)
-     if(!arr||!str){return}
-     if(S(str) && !g.n){str=str.trim()}
-     return _.contains(_.tA(arr), str)}
-     _.eS=function(str,fn){
-     _.e(_.tA(str),function(str){
-     if(str=S(str)&&str.trim()){fn(str)}
-     })}
+        $(w.i.canvas)
+            .mouseup(function(e){fn({x:w.mx, y:w.my, e:e})})
 
-     _.e=function(arr,fn){_.each(_.tA(arr),fn)}
-
-     _.tA=function(arr){
-     return S(arr)? arr.trim().split(' '):
-     O(arr)? _.toArray(arr):
-     [arr]
-     }
-
-
-
-     _.m=function(arr,fn){return _.map(_.tA(arr),fn)}
-
-
-
-     _.iU=function(s){if(S(s)){return  s$(s).isUpper()}}
-
-     b2d.k=function(fb,k){fb.ks= fb.ks||[]
-     if(U(k)){return fb.ks.join(' ')+'|'+  (b2d.iF(fb)?fb.B().K():'')}
-     if(O(k) && !A(k)){fb.K(k.k);return fb}
-     _.eS(k, function(k){if(!fb.of(k)){fb.ks.push(k)}})
-     return fb}
-
-
-     b2d.of=function(fb,k){var of;
-     if(U(k)){return 1}
-
-     _.e(k, function(k){
-     if(b2d.iF(fb)){
-     of=fb.B().of(k)}
-     if(!k||fb==k||_.ct(fb.ks, k)){of=1}
-     })
-
-     return of
-
-     }
-
-
-
-     f.K =function(k){return b2d.k(this,k)}
-
-     b.K =function(k){return b2d.k(this, k)}
-
-     f.of=function(k){return b2d.of(this,k)}
-     b.of=function(k){return b2d.of(this, k)}
-
-     */
-    SLING=function(){W(50)
-        tf = null
-        b = w.D(100, 100, 'b', 100, 200 )
-        p = w.S(200, 200,'s', 100, 150 ).rot(20)
-        p.rec('o', 50, 50, 50, 50, 20)
-        f = p.f()
-        h = f.H()
-
-
-        hit = f.tP( p.transform(), V(200, 200)  ) // true
-
-        hit2 = f.hit(200, 200, true)
-        startpoint={}
-        slingshot = $h().a2( s )
-
-        onMouseDown=function(e){
-            if(ball.hitTestPoint(e.x, e.y)){
-                mouseJoint = w.J(
-                    b2d.createMouseJointDef(
-                        w.ground, //?
-                        ball.body,
-                        e.x, e.y, 100000))
-                startpoint.x = e.x
-                startpoint.y = e.y
-            }
-        }
-
-        onMouseMove=function(event){
-            if(mouseJoint !=null){
-                mouseJoint.setTarget(event.x, event.y)
-                slingshot.clear()
-                slingshot.setLineStyle(5, 0xff0000, 1)
-                slingshot.beginPath()
-                slingshot.mt(self.startpoint.x, self.startpoint.y)
-                slingshot.lt(event.x, event.y)
-                slingshot.ep()
-            }
-        }
-        onMouseUp=function(event){
-            if (mouseJoint != null){
-                w.dJ( mouseJoint)
-                mouseJoint = null
-                slingshot.clear()
-                strength = 1
-                xVect = ( startpoint.x-event.x)*strength
-                yVect = ( startpoint.y-event.y)*strength
-                ball.body.applyLinearImpulse(  xVect,   yVect, ball.getX(), ball.getY())
-            }}
+        return w
 
     }
-
+    $.mousemove=function(fn){$('body').on('mousemove', fn); return $}
+    $.oMM=function(fn){return $.mousemove(function(e){fn(e.clientX, e.clientY, e)})}
+    w.mm= function(fn){var w=this, g=G(arguments)
+        $.mousemove(function(e){
+            var o={x:w.mx, y:w.my, X:e.clientX, Y:e.clientY, e:e}
+            fn(o)
+        })
+        return w
+    }
+    w.$$=function(fn){var w=this
+        w.UI().dblclick(function(e){fn({x:w.mx, y:w.my, e:e})})
+        return w}
 }
 
-fD.D = fD.data = function (data) {
-    if (U(data)) {return this.userData}
-    this.userData = data;
+
+
+
+
+
+
+//ticker
+w.tE=function(fn){var w=this
+    T.t(function(){  w.e(fn)  })
     return this
 }
+
